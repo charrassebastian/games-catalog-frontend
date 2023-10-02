@@ -27,12 +27,14 @@ export const WelcomeScreen = () => {
         setGames([])
     }
 
+    const isEditable = false
+
     // If data.games contains games, display them using GameList
     return (
         <>
             <Navbar />
             <MainSection searchValue={searchValue} onSearchValueChange={onSearchValueChange} onSearch={onSearch} onClear={onClear} />
-            <GameList games={games} />
+            <GameList games={games} isEditable={isEditable} />
             <Features />
             <Footer />
         </>
