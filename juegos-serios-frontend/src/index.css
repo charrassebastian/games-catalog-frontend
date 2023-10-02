@@ -48,6 +48,15 @@ p {
   color: #f6f6f6;
 }
 
+.card{
+  padding: 0;
+  width: 25%;
+}
+
+.card > img{
+  width: 100%;
+}
+
 .bgcolor-about {
   background-color: #163172;
 }
