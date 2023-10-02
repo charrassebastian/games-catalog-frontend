@@ -1,4 +1,5 @@
-import Game from "./types/Game"
+import Game from "../src/types/Game"
+
 export const game: Game = {
   "name": "Plague Inc.",
   "area": ["Ciencias Naturales"],

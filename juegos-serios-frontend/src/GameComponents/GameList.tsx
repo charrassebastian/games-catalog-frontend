@@ -1,4 +1,4 @@
-import GameCard from '../GameCard/GameCard'
+import GameCard from './GameCard'
 import Game from '../types/Game'
 
 export function GameList({ games, isEditable }: { games: Game[], isEditable: boolean }) {

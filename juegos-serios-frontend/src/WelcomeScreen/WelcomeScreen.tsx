@@ -1,4 +1,4 @@
-import { GameList } from '../GameList/GameList'
+import { GameList } from '../GameComponents/GameList'
 import axios from 'axios'
 import { baseUrl } from '../constants/url'
 import { useState } from 'react'
@@ -18,7 +18,6 @@ export const WelcomeScreen = () => {
 
     const onSearch = async () => {
         const tempGames = await getGames(searchValue)
-        console.log(tempGames)
         setGames(tempGames.games)
     }
 
