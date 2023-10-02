@@ -10,7 +10,7 @@ import Game from '../types/Game'
 export default function GameCard({ game }: { game: Game }) {
   return (
     <>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card sx={{ maxWidth: 345 }} className="m-3">
         <CardMedia
           sx={{ height: 140 }}
           image={game.imageLink}
