@@ -26,7 +26,8 @@ export const WelcomeScreen = () => {
         setGames([])
     }
 
-    const isEditable = false
+    // TODO: set based on the availability of the jwt
+    const isEditable = true
 
     // If data.games contains games, display them using GameList
     return (
