@@ -81,28 +81,31 @@ img {
   color: #163172;
   font-weight: bolder;
   font-size: 3rem;
+  text-align: center;
+  margin-bottom: 5%;
 }
 
 .features-h3 {
   color: #1e56a0;
   font-weight: bolder;
-  margin-left: 2rem;
+  text-align: center;
 }
 
 .features-p {
   color: #1e56a0;
   font-weight: bold;
-  margin-top: 40px;
   text-align: center;
 }
 
 .features-p-2 {
   color: #1e56a0;
   font-weight: bold;
-  margin-top: 80px;
   text-align: center;
 }
 
+.textoFeatures{
+  max-width: 120%;
+}
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -171,5 +174,16 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (max-width:1300px){
+  .contenedorFeatures{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 50%;
+  }
+  .textoFeatures{
+    min-width: 120%;
   }
 }
