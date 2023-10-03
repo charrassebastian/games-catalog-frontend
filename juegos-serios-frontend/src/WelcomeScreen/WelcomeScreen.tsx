@@ -34,7 +34,7 @@ export const WelcomeScreen = () => {
             <Navbar />
             <MainSection searchValue={searchValue} onSearchValueChange={onSearchValueChange} onSearch={onSearch} onClear={onClear} />
             {/* <GameList games={games} isEditable={user ? true : false}/> Picks the appropiate game component */}
-            <GameList games={games} isEditable={false}/> {/* Picks the appropiate game component */}
+            <GameList games={games} isEditable={true}/> {/* Picks the appropiate game component */}
             <Features />
             <Footer />
         </>

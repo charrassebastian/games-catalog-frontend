@@ -37,52 +37,74 @@ export function EditableCard({ game, isNewGame }: { game: Game, isNewGame?: bool
             <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} />
             <h3 className="card-title text-dark m-3">{game.name}</h3>
             <div className="card-body">
-                <label htmlFor={'name-' + game.name} className="form-label">Nombre:</label>
-                <input id={"name-" + game.name} type="text" className="form-control" value={gameName} onChange={onGameNameChange} />
-                <label htmlFor={'description-' + game.name} className="form-label">Descripción:</label>
-                <input id={"description-" + game.name} type="text" className="form-control" value={description} onChange={onDescriptionChange} />
-                {/* {game.area.map((area: string) => (
-                    <div key={area}>
+                <form>
+                    <div className="mb-3">
+                        <label htmlFor={'name-' + game.name} className="form-label">Nombre:</label>
+                        <input id={"name-" + game.name} type="text" className="form-control" value={gameName} onChange={onGameNameChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor={'description-' + game.name} className="form-label">Descripción:</label>
+                        <input id={"description-" + game.name} type="text" className="form-control" value={description} onChange={onDescriptionChange} />
+                    </div>
+                    {/* {game.area.map((area: string) => (
+                    <div key={area} className="mb-3">
                         <label htmlFor={'area-' + area} className="form-label">Area:</label>
                         <input id={'area-' + area} type="text" className="form-control" value={area} onChange={} />
                         <button type="button" className="btn btn-danger">Borrar area</button>
                     </div>
-                ))
-                } */}
-                <label htmlFor={'newArea-' + game.name} className="form-label">Nueva area</label>
-                <input id={'newArea-' + game.name} type="text" className="form-control" value={newArea} onChange={onNewAreaChange} />
-                <button type="button" className="btn btn-primary">Agregar area</button>
-                <label htmlFor={"has-goal-" + game.name} className="form-check-label">Tiene un objetivo?:</label>
-                <input id={"has-goal-" + game.name} type="checkbox" className="form-check-input" checked={hasGoal} onChange={onHasGoalChange} />
-                <label htmlFor={"content-validation-" + game.name} className="form-label">Validación de contenido:</label>
-                <input id={"content-validation-" + game.name} type="text" className="form-control" value={contentValidation} onChange={onContentValidationChange} />
-                <label htmlFor={"observations-and-suggestions-" + game.name} className="form-label">Observaciones y sugerencias:</label>
-                <input id={"observations-and-suggestions-" + game.name} type="text" className="form-control" value={observationsAndSuggestions} onChange={onObservationsAndSuggestionsChange} />
-                <label htmlFor={"score-" + game.name} className="form-label">Puntaje:</label>
-                <input id={"score-" + game.name} type="number" className="form-control" value={score} onChange={onScoreChange} />
-                <label htmlFor={"other-" + game.name} className="form-label">Otro:</label>
-                <input id={"other-" + game.name} type="text" className="form-control" value={others} onChange={onOthersChange} />
-                <label htmlFor={"game-url-" + game.name} className="form-label">URL del juego:</label>
-                <input id={"game-url-" + game.name} type="text" className="form-control" value={link} onChange={onLinkChange} />
-                <label htmlFor={"image-url-" + game.name} className="form-label">URL de la imagen:</label>
-                <input id={"image-url-" + game.name} type="text" className="form-control" value={imageLink} onChange={onImageLinkChange} />
-                {/* {game.scope.market.map((market: string) => (
-                    <div key={market}>
+                    ))
+                    } */}
+                    <div className="mb-3">
+                        <label htmlFor={'newArea-' + game.name} className="form-label">Nueva area</label>
+                        <input id={'newArea-' + game.name} type="text" className="form-control" value={newArea} onChange={onNewAreaChange} />
+                    </div>
+                    <button type="button" className="btn btn-primary mb-3">Agregar area</button>
+                    <div className="form-check mb-3">
+                        <label htmlFor={"has-goal-" + game.name} className="form-check-label">Tiene un objetivo?</label>
+                        <input id={"has-goal-" + game.name} type="checkbox" className="form-check-input" checked={hasGoal} onChange={onHasGoalChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor={"content-validation-" + game.name} className="form-label">Validación de contenido:</label>
+                        <input id={"content-validation-" + game.name} type="text" className="form-control" value={contentValidation} onChange={onContentValidationChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor={"observations-and-suggestions-" + game.name} className="form-label">Observaciones y sugerencias:</label>
+                        <input id={"observations-and-suggestions-" + game.name} type="text" className="form-control" value={observationsAndSuggestions} onChange={onObservationsAndSuggestionsChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor={"score-" + game.name} className="form-label">Puntaje:</label>
+                        <input id={"score-" + game.name} type="number" className="form-control" value={score} onChange={onScoreChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor={"other-" + game.name} className="form-label">Otro:</label>
+                        <input id={"other-" + game.name} type="text" className="form-control" value={others} onChange={onOthersChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor={"game-url-" + game.name} className="form-label">URL del juego:</label>
+                        <input id={"game-url-" + game.name} type="text" className="form-control" value={link} onChange={onLinkChange} />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor={"image-url-" + game.name} className="form-label">URL de la imagen:</label>
+                        <input id={"image-url-" + game.name} type="text" className="form-control" value={imageLink} onChange={onImageLinkChange} />
+                    </div>
+                    {/* {game.scope.market.map((market: string) => (
+                    <div key={market} className="mb-3">
                         <label htmlFor={'market-' + market} className="form-label">Mercado:</label>
                         <input id={'market-' + market} type="text" className="form-control" value={market} onChange={} />
                         <button type="button" className="btn btn-danger">Borrar mercado</button>
                     </div>
                 ))
                 } */}
-                {/* {game.scope.public.map((gamePublic: string) => (
-                    <div key={gamePublic}>
+                    {/* {game.scope.public.map((gamePublic: string) => (
+                    <div key={gamePublic} className="mb-3">
                         <label htmlFor={'public-' + gamePublic} className="form-label">Público:</label>
                         <input id={'public-' + gamePublic} type="text" className="form-control" value={gamePublic} onChange={} />
                         <button type="button" className="btn btn-danger">Borrar público</button>
                     </div>
                 ))
                 } */}
-                <button type="button" className="btn btn-danger">Borrar juego</button>
+                    <button type="button" className="btn btn-danger">Borrar juego</button>
+                </form>
             </div>
         </div>
     )
