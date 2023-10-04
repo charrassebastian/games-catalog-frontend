@@ -217,7 +217,14 @@ button:focus-visible {
     flex-wrap: wrap;
     max-width: 50%;
   }
+
   .textoFeatures{
     min-width: 120%;
+  }
+}
+
+@media (max-width:1000px){
+  .card {
+    width: 100%;
   }
 }
