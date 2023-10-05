@@ -64,8 +64,7 @@ p {
 /*LOGIN*/
 .formLogin{
   display:grid;
-  flex-wrap: ceter;
-
+  flex-wrap: center;
   position: fixed;
   top: 30%;
   left: 50%;

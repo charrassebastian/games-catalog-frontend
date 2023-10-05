@@ -1,8 +1,8 @@
 import Game from '../types/Game'
 import React, { useState } from 'react'
 
-export function EditableCard({ game, isNewGame }: { game: Game, isNewGame?: boolean }) {
-    console.log(isNewGame)
+export function EditableCard({ game, isNewGame, onGameDelete }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void }) {
+    console.log(game)
     const [gameName, setGameName] = useState(game.name)
     const [description, setDescription] = useState(game.description)
     // const [areas, setAreas] = useState(game.area)
@@ -31,10 +31,9 @@ export function EditableCard({ game, isNewGame }: { game: Game, isNewGame?: bool
     // const onMarketChange = (e: React.ChangeEvent<HTMLInputElement>) => setMarket(e.target.value)
     // const onGamePublicChange = (e: React.ChangeEvent<HTMLInputElement>) => setGamePublic(e.target.value)
 
-    // TODO: add the form style
     return (
         <div className="card m-3">
-            <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} />
+            { game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null }
             <h3 className="card-title text-dark m-3">{game.name}</h3>
             <div className="card-body">
                 <form>
@@ -103,7 +102,7 @@ export function EditableCard({ game, isNewGame }: { game: Game, isNewGame?: bool
                     </div>
                 ))
                 } */}
-                    <button type="button" className="btn btn-danger">Borrar juego</button>
+                { !isNewGame ? <button type="button" className="btn btn-danger" onClick={() => onGameDelete(game._id!!)}>Borrar juego</button> : null }
                 </form>
             </div>
         </div>

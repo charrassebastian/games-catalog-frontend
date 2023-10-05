@@ -3,11 +3,7 @@ import Game from "../src/types/Game"
 export const emptyGame: Game = {
   "name": "Nuevo juego",
   "area": [],
-  "purpose": {
-    "messagePropagation": [],
-    "training": [],
-    "informationExchange": false
-  },
+  "purpose": [],
   "scope": {
     "market": [],
     "public": []
