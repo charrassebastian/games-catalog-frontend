@@ -29,13 +29,6 @@ export function GameList({ games, isEditable }: { games: Game[], isEditable: boo
         <GameCard game={game} isEditable={isEditable} onGameDelete={onGameDelete} key={game.name} />
     ))
 
-    console.log('games')
-    console.log(games)
-    console.log('currentGames')
-    console.log(currentGames)
-    console.log('example')
-    console.log([...games])
-
     return (
         <section className='container mt-5'>
             <div className='row'>

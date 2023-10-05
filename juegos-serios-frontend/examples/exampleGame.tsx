@@ -3,11 +3,7 @@ import Game from "../src/types/Game"
 export const game: Game = {
   "name": "Plague Inc.",
   "area": ["Ciencias Naturales"],
-  "purpose": {
-    "messagePropagation": ["example1", "example2"],
-    "training": ["example"],
-    "informationExchange": true
-  },
+  "purpose": [],
   "scope": {
     "market": ["example1", "example2"],
     "public": ["example1", "example2"]

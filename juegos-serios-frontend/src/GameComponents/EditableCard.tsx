@@ -1,12 +1,15 @@
 import Game from '../types/Game'
 import React, { useState } from 'react'
+import axios from 'axios'
+import { useMutation } from '@tanstack/react-query'
+import { baseUrl } from '../constants/url'
 
 export function EditableCard({ game, isNewGame, onGameDelete }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void }) {
-    console.log(game)
     const [gameName, setGameName] = useState(game.name)
     const [description, setDescription] = useState(game.description)
     // const [areas, setAreas] = useState(game.area)
     const [newArea, setNewArea] = useState("")
+    const [purpose, setPurpose] = useState(game.purpose)
     const [hasGoal, setHasGoal] = useState(game.hasGoal)
     const [contentValidation, setContentValidation] = useState(game.contentValidation)
     const [observationsAndSuggestions, setObservationsAndSuggestions] = useState(game.observationsAndSuggestions)
@@ -20,6 +23,7 @@ export function EditableCard({ game, isNewGame, onGameDelete }: { game: Game, is
     const onGameNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setGameName(e.target.value)
     const onDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)
     // const onAreasChange = (e: React.ChangeEvent<HTMLInputElement>) => setAreas(e.target.value)
+    // const onPurposeChange = (e: React.ChangeEvent<HTMLInputElement>) => setPurpose(e.target.value)
     const onNewAreaChange = (e: React.ChangeEvent<HTMLInputElement>) => setNewArea(e.target.value)
     const onHasGoalChange = () => setHasGoal(!hasGoal)
     const onContentValidationChange = (e: React.ChangeEvent<HTMLInputElement>) => setContentValidation(e.target.value)
@@ -31,9 +35,38 @@ export function EditableCard({ game, isNewGame, onGameDelete }: { game: Game, is
     // const onMarketChange = (e: React.ChangeEvent<HTMLInputElement>) => setMarket(e.target.value)
     // const onGamePublicChange = (e: React.ChangeEvent<HTMLInputElement>) => setGamePublic(e.target.value)
 
+    const editedGame = {
+        _id: game._id,
+        name: gameName,
+        area: game.area,
+        purpose: purpose,
+        scope: {
+            market: game.scope.market,
+            public: game.scope.public
+        },
+        hasGoal,
+        description,
+        link,
+        contentValidation,
+        observationsAndSuggestions,
+        score,
+        imageLink,
+        others
+    }
+
+    const updateGameMutation = useMutation({
+        mutationFn: () => axios.put(baseUrl + 'game', { game: editedGame }, { params: { id: game._id } })
+    })
+    const createGameMutation = useMutation({
+        mutationFn: (game: Game) => axios.post(baseUrl + 'game', { game })
+    })
+
+    const onGameUpdate = () => updateGameMutation.mutate()
+    const onGameCreate = (game: Game) => createGameMutation.mutate(game)
+
     return (
         <div className="card m-3">
-            { game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null }
+            {game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null}
             <h3 className="card-title text-dark m-3">{game.name}</h3>
             <div className="card-body">
                 <form>
@@ -53,6 +86,7 @@ export function EditableCard({ game, isNewGame, onGameDelete }: { game: Game, is
                     </div>
                     ))
                     } */}
+                    {/* allow the user to edit the purpose */}
                     <div className="mb-3">
                         <label htmlFor={'newArea-' + game.name} className="form-label">Nueva area</label>
                         <input id={'newArea-' + game.name} type="text" className="form-control" value={newArea} onChange={onNewAreaChange} />
@@ -102,7 +136,13 @@ export function EditableCard({ game, isNewGame, onGameDelete }: { game: Game, is
                     </div>
                 ))
                 } */}
-                { !isNewGame ? <button type="button" className="btn btn-danger" onClick={() => onGameDelete(game._id!!)}>Borrar juego</button> : null }
+                    {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={() => onGameDelete(game._id!!)}>Borrar juego</button></div> : null}
+                    <div>
+                        {!isNewGame
+                            ? <button type="button" className="btn btn-primary" onClick={() => onGameUpdate()}>Actualizar juego</button>
+                            : <button type="button" className="btn btn-primary" onClick={() => onGameCreate(editedGame)}>Agregar juego</button>
+                        }
+                    </div>
                 </form>
             </div>
         </div>
