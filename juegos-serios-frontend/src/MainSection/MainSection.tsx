@@ -9,9 +9,9 @@ export function MainSection({ searchValue, onSearchValueChange, onSearch, onClea
                     <div className="col-lg-6 px-3 px-md5">
                         <h1 className="display-1 fw-bold text-body-emphasis bs-light lh-1 mb-3">Juegos Serios</h1>
                         <br />
-                        <h2>Encontra el juego que estas buscando.</h2>
+                        <h2 className="introductory-text">Encontra el juego que estas buscando.</h2>
                         <br />
-                        <p>Ingresa el nombre del juego que estes buscando y luego hace click en el boton Buscar.</p>
+                        <p className="introductory-text">Ingresa el nombre del juego que estes buscando y luego hace click en el boton Buscar.</p>
                     </div>
                     <form className="d-flex d-grid gap-3 d-md-flex justify-content-md-start" role="search">
                         <input

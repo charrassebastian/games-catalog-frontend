@@ -4,7 +4,7 @@ import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
 import { baseUrl } from '../constants/url'
 
-export function EditableCard({ game, isNewGame, onGameDelete }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void }) {
+export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void, onToggleEdit?: () => void }) {
     const [gameName, setGameName] = useState(game.name)
     const [description, setDescription] = useState(game.description)
     // const [areas, setAreas] = useState(game.area)
@@ -138,8 +138,11 @@ export function EditableCard({ game, isNewGame, onGameDelete }: { game: Game, is
                 } */}
                     {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={() => onGameDelete(game._id!!)}>Borrar juego</button></div> : null}
                     <div>
-                        {!isNewGame
-                            ? <button type="button" className="btn btn-primary" onClick={() => onGameUpdate()}>Actualizar juego</button>
+                        {!isNewGame ?
+                            <>
+                                <div className="mb-3"><button type="button" className="btn btn-primary" onClick={() => onGameUpdate()}>Actualizar juego</button></div>
+                                <div><button type="button" className="btn btn-secondary" onClick={onToggleEdit}>Dejar de editar</button></div>
+                            </>
                             : <button type="button" className="btn btn-primary" onClick={() => onGameCreate(editedGame)}>Agregar juego</button>
                         }
                     </div>
