@@ -1,3 +1,7 @@
+import areas from '../constants/areas'
+import markets from '../constants/markets'
+import publics from '../constants/publics'
+import purposes from '../constants/purposes'
 import Game from '../types/Game'
 import React, { useState } from 'react'
 import axios from 'axios'
@@ -7,9 +11,8 @@ import { baseUrl } from '../constants/url'
 export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void, onToggleEdit?: () => void }) {
     const [gameName, setGameName] = useState(game.name)
     const [description, setDescription] = useState(game.description)
-    // const [areas, setAreas] = useState(game.area)
-    const [newArea, setNewArea] = useState("")
-    const [purpose, setPurpose] = useState(game.purpose)
+    const [gameAreas, setGameAreas] = useState(game.area)
+    const [gamePurposes, setGamePurposes] = useState(game.purpose)
     const [hasGoal, setHasGoal] = useState(game.hasGoal)
     const [contentValidation, setContentValidation] = useState(game.contentValidation)
     const [observationsAndSuggestions, setObservationsAndSuggestions] = useState(game.observationsAndSuggestions)
@@ -17,14 +20,11 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     const [others, setOthers] = useState(game.others)
     const [link, setLink] = useState(game.link)
     const [imageLink, setImageLink] = useState(game.imageLink)
-    // const [market, setMarket] = useState(game.scope.market)
-    // const [gamePublic, setGamePublic] = useState(game.scope.public)
+    const [gameMarkets, setGameMarkets] = useState(game.scope.market)
+    const [gamePublics, setGamePublics] = useState(game.scope.public)
 
     const onGameNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setGameName(e.target.value)
     const onDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)
-    // const onAreasChange = (e: React.ChangeEvent<HTMLInputElement>) => setAreas(e.target.value)
-    // const onPurposeChange = (e: React.ChangeEvent<HTMLInputElement>) => setPurpose(e.target.value)
-    const onNewAreaChange = (e: React.ChangeEvent<HTMLInputElement>) => setNewArea(e.target.value)
     const onHasGoalChange = () => setHasGoal(!hasGoal)
     const onContentValidationChange = (e: React.ChangeEvent<HTMLInputElement>) => setContentValidation(e.target.value)
     const onObservationsAndSuggestionsChange = (e: React.ChangeEvent<HTMLInputElement>) => setObservationsAndSuggestions(e.target.value)
@@ -32,17 +32,47 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     const onOthersChange = (e: React.ChangeEvent<HTMLInputElement>) => setOthers(e.target.value)
     const onLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => setLink(e.target.value)
     const onImageLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => setImageLink(e.target.value)
-    // const onMarketChange = (e: React.ChangeEvent<HTMLInputElement>) => setMarket(e.target.value)
-    // const onGamePublicChange = (e: React.ChangeEvent<HTMLInputElement>) => setGamePublic(e.target.value)
+
+    const onAreaToggle = (area: string) => {
+        if (gameAreas.includes(area)) {
+            setGameAreas(gameAreas.filter(e => e !== area))
+        } else {
+            setGameAreas([...gameAreas, area])
+        }
+    }
+
+    const onPurposeToggle = (purpose: string) => {
+        if (gamePurposes.includes(purpose)) {
+            setGamePurposes(gamePurposes.filter(e => e !== purpose))
+        } else {
+            setGamePurposes([...gamePurposes, purpose])
+        }
+    }
+
+    const onMarketToggle = (market: string) => {
+        if (gameMarkets.includes(market)) {
+            setGameMarkets(gameMarkets.filter(e => e !== market))
+        } else {
+            setGameMarkets([...gameMarkets, market])
+        }
+    }
+
+    const onPublicToggle = (gamePublic: string) => {
+        if (gamePublics.includes(gamePublic)) {
+            setGamePublics(gamePublics.filter(e => e !== gamePublic))
+        } else {
+            setGamePublics([...gamePublics, gamePublic])
+        }
+    }
 
     const editedGame = {
         _id: game._id,
         name: gameName,
-        area: game.area,
-        purpose: purpose,
+        area: gameAreas,
+        purpose: gamePurposes,
         scope: {
-            market: game.scope.market,
-            public: game.scope.public
+            market: gameMarkets,
+            public: gamePublics
         },
         hasGoal,
         description,
@@ -78,23 +108,41 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                         <label htmlFor={'description-' + game.name} className="form-label">Descripción:</label>
                         <input id={"description-" + game.name} type="text" className="form-control" value={description} onChange={onDescriptionChange} />
                     </div>
-                    {/* {game.area.map((area: string) => (
-                    <div key={area} className="mb-3">
-                        <label htmlFor={'area-' + area} className="form-label">Area:</label>
-                        <input id={'area-' + area} type="text" className="form-control" value={area} onChange={} />
-                        <button type="button" className="btn btn-danger">Borrar area</button>
+                    <div>
+                        <h4>Areas</h4>
+                        <ul>
+                            {areas.map(area => {
+                                const isChecked = gameAreas.includes(area)
+                                return (
+                                    <li key={area}>
+                                        <div className="form-check mb-3">
+                                            <label htmlFor={"has-area-" + area} className="form-check-label">{area}</label>
+                                            <input id={"has-area-" + area} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onAreaToggle(area)} />
+                                        </div>
+                                    </li>)
+                            })
+                            }
+                        </ul>
                     </div>
-                    ))
-                    } */}
-                    {/* allow the user to edit the purpose */}
-                    <div className="mb-3">
-                        <label htmlFor={'newArea-' + game.name} className="form-label">Nueva area</label>
-                        <input id={'newArea-' + game.name} type="text" className="form-control" value={newArea} onChange={onNewAreaChange} />
-                    </div>
-                    <button type="button" className="btn btn-primary mb-3">Agregar area</button>
                     <div className="form-check mb-3">
                         <label htmlFor={"has-goal-" + game.name} className="form-check-label">Tiene un objetivo?</label>
                         <input id={"has-goal-" + game.name} type="checkbox" className="form-check-input" checked={hasGoal} onChange={onHasGoalChange} />
+                    </div>
+                    <div>
+                        <h4>Propositos</h4>
+                        <ul>
+                            {purposes.map(purpose => {
+                                const isChecked = gamePurposes.includes(purpose)
+                                return (
+                                    <li key={purpose}>
+                                        <div className="form-check mb-3">
+                                            <label htmlFor={"has-purpose-" + purpose} className="form-check-label">{purpose}</label>
+                                            <input id={"has-purpose-" + purpose} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onPurposeToggle(purpose)} />
+                                        </div>
+                                    </li>)
+                            })
+                            }
+                        </ul>
                     </div>
                     <div className="mb-3">
                         <label htmlFor={"content-validation-" + game.name} className="form-label">Validación de contenido:</label>
@@ -108,6 +156,38 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                         <label htmlFor={"score-" + game.name} className="form-label">Puntaje:</label>
                         <input id={"score-" + game.name} type="number" className="form-control" value={score} onChange={onScoreChange} />
                     </div>
+                    <div>
+                        <h4>Mercados</h4>
+                        <ul>
+                            {markets.map(market => {
+                                const isChecked = gameMarkets.includes(market)
+                                return (
+                                    <li key={market}>
+                                        <div className="form-check mb-3">
+                                            <label htmlFor={"has-market-" + market} className="form-check-label">{market}</label>
+                                            <input id={"has-market-" + market} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onMarketToggle(market)} />
+                                        </div>
+                                    </li>)
+                            })
+                            }
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Publicos</h4>
+                        <ul>
+                            {publics.map(gamePublic => {
+                                const isChecked = gamePublics.includes(gamePublic)
+                                return (
+                                    <li key={gamePublic}>
+                                        <div className="form-check mb-3">
+                                            <label htmlFor={"has-public-" + gamePublic} className="form-check-label">{gamePublic}</label>
+                                                <input id={"has-public-" + gamePublic} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onPublicToggle(gamePublic)} />
+                                        </div>
+                                    </li>)
+                            })
+                            }
+                        </ul>
+                    </div>
                     <div className="mb-3">
                         <label htmlFor={"other-" + game.name} className="form-label">Otro:</label>
                         <input id={"other-" + game.name} type="text" className="form-control" value={others} onChange={onOthersChange} />
@@ -120,22 +200,6 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                         <label htmlFor={"image-url-" + game.name} className="form-label">URL de la imagen:</label>
                         <input id={"image-url-" + game.name} type="text" className="form-control" value={imageLink} onChange={onImageLinkChange} />
                     </div>
-                    {/* {game.scope.market.map((market: string) => (
-                    <div key={market} className="mb-3">
-                        <label htmlFor={'market-' + market} className="form-label">Mercado:</label>
-                        <input id={'market-' + market} type="text" className="form-control" value={market} onChange={} />
-                        <button type="button" className="btn btn-danger">Borrar mercado</button>
-                    </div>
-                ))
-                } */}
-                    {/* {game.scope.public.map((gamePublic: string) => (
-                    <div key={gamePublic} className="mb-3">
-                        <label htmlFor={'public-' + gamePublic} className="form-label">Público:</label>
-                        <input id={'public-' + gamePublic} type="text" className="form-control" value={gamePublic} onChange={} />
-                        <button type="button" className="btn btn-danger">Borrar público</button>
-                    </div>
-                ))
-                } */}
                     {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={() => onGameDelete(game._id!!)}>Borrar juego</button></div> : null}
                     <div>
                         {!isNewGame ?
