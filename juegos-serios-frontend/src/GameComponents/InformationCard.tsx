@@ -17,10 +17,10 @@ export function InformationCard({ game, isEditable, onToggleEdit }: { game: Game
                         {areas.map(area => {
                             const isChecked = game.area.includes(area)
                             return (
-                                <li>
+                                <li key={area}>
                                     <div className="form-check mb-3">
                                         <label htmlFor={"has-area-" + area} className="form-check-label">{area}</label>
-                                        <input id={"has-area-" + area} type="checkbox" className="form-check-input" checked={isChecked} />
+                                        <input id={"has-area-" + area} type="checkbox" className="form-check-input" checked={isChecked} readOnly />
                                     </div>
                                 </li>)
                         })
@@ -34,10 +34,10 @@ export function InformationCard({ game, isEditable, onToggleEdit }: { game: Game
                         {purposes.map(purpose => {
                             const isChecked = game.purpose.includes(purpose)
                             return (
-                                <li>
+                                <li key={purpose}>
                                     <div className="form-check mb-3">
                                         <label htmlFor={"has-purpose-" + purpose} className="form-check-label">{purpose}</label>
-                                        <input id={"has-purpose-" + purpose} type="checkbox" className="form-check-input" checked={isChecked} />
+                                        <input id={"has-purpose-" + purpose} type="checkbox" className="form-check-input" checked={isChecked} readOnly />
                                     </div>
                                 </li>)
                         })
@@ -53,10 +53,10 @@ export function InformationCard({ game, isEditable, onToggleEdit }: { game: Game
                         {markets.map(market => {
                             const isChecked = game.scope.market.includes(market)
                             return (
-                                <li>
+                                <li key={market}>
                                     <div className="form-check mb-3">
                                         <label htmlFor={"has-market-" + market} className="form-check-label">{market}</label>
-                                        <input id={"has-market-" + market} type="checkbox" className="form-check-input" checked={isChecked} />
+                                        <input id={"has-market-" + market} type="checkbox" className="form-check-input" checked={isChecked} readOnly />
                                     </div>
                                 </li>)
                         })
@@ -69,10 +69,10 @@ export function InformationCard({ game, isEditable, onToggleEdit }: { game: Game
                         {publics.map(gamePublic => {
                             const isChecked = game.scope.public.includes(gamePublic)
                             return (
-                                <li>
+                                <li key={gamePublic}>
                                     <div className="form-check mb-3">
                                         <label htmlFor={"has-public-" + gamePublic} className="form-check-label">{gamePublic}</label>
-                                        <input id={"has-public-" + gamePublic} type="checkbox" className="form-check-input" checked={isChecked} />
+                                        <input id={"has-public-" + gamePublic} type="checkbox" className="form-check-input" checked={isChecked} readOnly />
                                     </div>
                                 </li>)
                         })

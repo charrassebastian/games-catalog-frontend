@@ -129,9 +129,9 @@ img {
   text-align: center;
 }
 
-.textoFeatures{
+/* .textoFeatures{
   max-width: 120%;
-}
+} */
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -208,16 +208,16 @@ button:focus-visible {
   .contenedorFeatures{
     display: flex;
     flex-wrap: wrap;
-    max-width: 50%;
+    /* max-width: 50%; */
   }
 
-  .textoFeatures{
+  /* .textoFeatures{
     min-width: 120%;
-  }
+  } */
 }
 
 @media (max-width:1000px){
   .card {
-    width: 100%;
+    width: 90%;
   }
 }
