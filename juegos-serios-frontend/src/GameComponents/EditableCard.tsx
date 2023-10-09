@@ -8,6 +8,8 @@ import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
 import { baseUrl } from '../constants/url'
 
+import Popup from '../Popup/popup'
+
 export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void, onToggleEdit?: () => void }) {
     const [gameName, setGameName] = useState(game.name)
     const [description, setDescription] = useState(game.description)
@@ -22,6 +24,8 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     const [imageLink, setImageLink] = useState(game.imageLink)
     const [gameMarkets, setGameMarkets] = useState(game.scope.market)
     const [gamePublics, setGamePublics] = useState(game.scope.public)
+
+    const [isOpen, setIsOpen] = useState(false);
 
     const onGameNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setGameName(e.target.value)
     const onDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)
@@ -92,10 +96,22 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     })
 
     const onGameUpdate = () => updateGameMutation.mutate()
-    const onGameCreate = (game: Game) => createGameMutation.mutate(game)
+    const onGameCreate = (game: Game) => {
+        createGameMutation.mutate(game)
+        closePopup()
+    }
+
+    const openPopup = () => {
+        setIsOpen(!isOpen);
+       };
+    
+     const closePopup = () => {
+          setIsOpen(!isOpen);
+       };
 
     return (
-        <div className="card m-3">
+        <Popup isOpen={isOpen} closePopup={closePopup} trigger={<button onClick={openPopup}>Editar</button>}>
+            <div className="card m-3">
             {game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null}
             <h3 className="card-title text-dark m-3">{game.name}</h3>
             <div className="card-body">
@@ -109,8 +125,8 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                         <input id={"description-" + game.name} type="text" className="form-control" value={description} onChange={onDescriptionChange} />
                     </div>
                     <div>
-                        <h4>Areas</h4>
-                        <ul>
+                        <h4>Áreas</h4>
+                        <ul className="checkList">
                             {areas.map(area => {
                                 const isChecked = gameAreas.includes(area)
                                 return (
@@ -130,7 +146,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                     </div>
                     <div>
                         <h4>Propositos</h4>
-                        <ul>
+                        <ul className="checkList">
                             {purposes.map(purpose => {
                                 const isChecked = gamePurposes.includes(purpose)
                                 return (
@@ -158,7 +174,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                     </div>
                     <div>
                         <h4>Mercados</h4>
-                        <ul>
+                        <ul className="checkList">
                             {markets.map(market => {
                                 const isChecked = gameMarkets.includes(market)
                                 return (
@@ -174,7 +190,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                     </div>
                     <div>
                         <h4>Publicos</h4>
-                        <ul>
+                        <ul className="checkList">
                             {publics.map(gamePublic => {
                                 const isChecked = gamePublics.includes(gamePublic)
                                 return (
@@ -200,7 +216,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                         <label htmlFor={"image-url-" + game.name} className="form-label">URL de la imagen:</label>
                         <input id={"image-url-" + game.name} type="text" className="form-control" value={imageLink} onChange={onImageLinkChange} />
                     </div>
-                    {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={() => onGameDelete(game._id!!)}>Borrar juego</button></div> : null}
+                    {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={() => onGameDelete(String(game._id))}>Borrar juego</button></div> : null}
                     <div>
                         {!isNewGame ?
                             <>
@@ -213,5 +229,6 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                 </form>
             </div>
         </div>
+    </Popup>       
     )
 }

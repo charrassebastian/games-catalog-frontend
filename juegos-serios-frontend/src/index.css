@@ -3,6 +3,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
+  z-index: 1;
 }
 
 /*******************************BACKGROUND GRADIENT ******************************/
@@ -27,6 +29,10 @@
 }
 
 /*******************************PAGE STYLE******************************/
+input[type]{
+  border: 1px solid blue;
+}
+
 .home {
   padding-top: 8rem;
   height: inherit;
@@ -191,6 +197,33 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/*POPUP*/
+.popup{
+  position: absolute;
+  z-index: 10;
+  
+  min-width: 80%;
+
+  filter: none;
+
+  backdrop-filter: blur(5px);
+}
+
+/*checklist*/
+.checkList{
+  columns: 3 200px;
+  column-gap: 3em;
+  column-rule: 1px solid #cecece;
+  list-style-type: none;
+}
+
+.form-check > label{
+  padding: 0;
+  margin: 0;
+} 
+
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -211,14 +244,8 @@ button:focus-visible {
     flex-wrap: wrap;
     /* max-width: 50%; */
   }
-
-  /* .textoFeatures{
-    min-width: 120%;
-  } */
 }
 
-@media (max-width:1000px){
-  .card {
-    width: 90%;
-  }
+.card {
+  width: 90%;
 }
