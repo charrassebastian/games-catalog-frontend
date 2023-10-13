@@ -25,7 +25,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     const [gameMarkets, setGameMarkets] = useState(game.scope.market)
     const [gamePublics, setGamePublics] = useState(game.scope.public)
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(!isNewGame);
 
     const onGameNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setGameName(e.target.value)
     const onDescriptionChange = (e: React.ChangeEvent<HTMLInputElement>) => setDescription(e.target.value)
@@ -101,134 +101,137 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
         closePopup()
     }
 
-    const openPopup = () => {
+    const closePopup = () => {
         setIsOpen(!isOpen);
-       };
-    
-     const closePopup = () => {
-          setIsOpen(!isOpen);
-       };
+    };
 
     return (
-        <Popup isOpen={isOpen} closePopup={closePopup} trigger={<button onClick={openPopup}>Editar</button>}>
-            <div className="card m-3">
-            {game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null}
-            <h3 className="card-title text-dark m-3">{game.name}</h3>
-            <div className="card-body">
-                <form>
-                    <div className="mb-3">
-                        <label htmlFor={'name-' + game.name} className="form-label">Nombre:</label>
-                        <input id={"name-" + game.name} type="text" className="form-control" value={gameName} onChange={onGameNameChange} />
+        <>
+            {isNewGame ? <button className='btn btn-primary' onClick={() => setIsOpen(true)}>Agregar juego</button> : null}
+            <Popup isOpen={isOpen}>
+                <div className="card m-3">
+                    {game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null}
+                    <h3 className="card-title text-dark m-3">{game.name}</h3>
+                    <div className="card-body">
+                        <form>
+                            <div className="mb-3">
+                                <label htmlFor={'name-' + game.name} className="form-label">Nombre:</label>
+                                <input id={"name-" + game.name} type="text" className="form-control" value={gameName} onChange={onGameNameChange} />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor={'description-' + game.name} className="form-label">Descripción:</label>
+                                <input id={"description-" + game.name} type="text" className="form-control" value={description} onChange={onDescriptionChange} />
+                            </div>
+                            <div>
+                                <h4>Áreas</h4>
+                                <ul className="checkList">
+                                    {areas.map(area => {
+                                        const isChecked = gameAreas.includes(area)
+                                        return (
+                                            <li key={area}>
+                                                <div className="form-check mb-3">
+                                                    <label htmlFor={"has-area-" + area} className="form-check-label">{area}</label>
+                                                    <input id={"has-area-" + area} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onAreaToggle(area)} />
+                                                </div>
+                                            </li>)
+                                    })
+                                    }
+                                </ul>
+                            </div>
+                            <div className="form-check mb-3">
+                                <label htmlFor={"has-goal-" + game.name} className="form-check-label">Tiene un objetivo?</label>
+                                <input id={"has-goal-" + game.name} type="checkbox" className="form-check-input" checked={hasGoal} onChange={onHasGoalChange} />
+                            </div>
+                            <div>
+                                <h4>Propositos</h4>
+                                <ul className="checkList">
+                                    {purposes.map(purpose => {
+                                        const isChecked = gamePurposes.includes(purpose)
+                                        return (
+                                            <li key={purpose}>
+                                                <div className="form-check mb-3">
+                                                    <label htmlFor={"has-purpose-" + purpose} className="form-check-label">{purpose}</label>
+                                                    <input id={"has-purpose-" + purpose} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onPurposeToggle(purpose)} />
+                                                </div>
+                                            </li>)
+                                    })
+                                    }
+                                </ul>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor={"content-validation-" + game.name} className="form-label">Validación de contenido:</label>
+                                <input id={"content-validation-" + game.name} type="text" className="form-control" value={contentValidation} onChange={onContentValidationChange} />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor={"observations-and-suggestions-" + game.name} className="form-label">Observaciones y sugerencias:</label>
+                                <input id={"observations-and-suggestions-" + game.name} type="text" className="form-control" value={observationsAndSuggestions} onChange={onObservationsAndSuggestionsChange} />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor={"score-" + game.name} className="form-label">Puntaje:</label>
+                                <input id={"score-" + game.name} type="number" className="form-control" value={score} onChange={onScoreChange} />
+                            </div>
+                            <div>
+                                <h4>Mercados</h4>
+                                <ul className="checkList">
+                                    {markets.map(market => {
+                                        const isChecked = gameMarkets.includes(market)
+                                        return (
+                                            <li key={market}>
+                                                <div className="form-check mb-3">
+                                                    <label htmlFor={"has-market-" + market} className="form-check-label">{market}</label>
+                                                    <input id={"has-market-" + market} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onMarketToggle(market)} />
+                                                </div>
+                                            </li>)
+                                    })
+                                    }
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Publicos</h4>
+                                <ul className="checkList">
+                                    {publics.map(gamePublic => {
+                                        const isChecked = gamePublics.includes(gamePublic)
+                                        return (
+                                            <li key={gamePublic}>
+                                                <div className="form-check mb-3">
+                                                    <label htmlFor={"has-public-" + gamePublic} className="form-check-label">{gamePublic}</label>
+                                                    <input id={"has-public-" + gamePublic} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onPublicToggle(gamePublic)} />
+                                                </div>
+                                            </li>)
+                                    })
+                                    }
+                                </ul>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor={"other-" + game.name} className="form-label">Otro:</label>
+                                <input id={"other-" + game.name} type="text" className="form-control" value={others} onChange={onOthersChange} />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor={"game-url-" + game.name} className="form-label">URL del juego:</label>
+                                <input id={"game-url-" + game.name} type="text" className="form-control" value={link} onChange={onLinkChange} />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor={"image-url-" + game.name} className="form-label">URL de la imagen:</label>
+                                <input id={"image-url-" + game.name} type="text" className="form-control" value={imageLink} onChange={onImageLinkChange} />
+                            </div>
+                            {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={() => onGameDelete(String(game._id))}>Borrar juego</button></div> : null}
+                            <div>
+                                {!isNewGame ?
+                                    <>
+                                        <div className="mb-3"><button type="button" className="btn btn-primary" onClick={() => onGameUpdate()}>Actualizar juego</button></div>
+                                        <div><button type="button" className="btn btn-secondary" onClick={onToggleEdit}>Dejar de editar</button></div>
+                                    </>
+                                    :
+                                    <>
+                                        <button type="button" className="btn btn-primary" onClick={() => onGameCreate(editedGame)}>Guardar juego</button>
+                                        <button type="button" className="btn btn-primary" onClick={() => setIsOpen(false)}>Cerrar</button>
+                                    </>
+                                }
+                            </div>
+                        </form>
                     </div>
-                    <div className="mb-3">
-                        <label htmlFor={'description-' + game.name} className="form-label">Descripción:</label>
-                        <input id={"description-" + game.name} type="text" className="form-control" value={description} onChange={onDescriptionChange} />
-                    </div>
-                    <div>
-                        <h4>Áreas</h4>
-                        <ul className="checkList">
-                            {areas.map(area => {
-                                const isChecked = gameAreas.includes(area)
-                                return (
-                                    <li key={area}>
-                                        <div className="form-check mb-3">
-                                            <label htmlFor={"has-area-" + area} className="form-check-label">{area}</label>
-                                            <input id={"has-area-" + area} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onAreaToggle(area)} />
-                                        </div>
-                                    </li>)
-                            })
-                            }
-                        </ul>
-                    </div>
-                    <div className="form-check mb-3">
-                        <label htmlFor={"has-goal-" + game.name} className="form-check-label">Tiene un objetivo?</label>
-                        <input id={"has-goal-" + game.name} type="checkbox" className="form-check-input" checked={hasGoal} onChange={onHasGoalChange} />
-                    </div>
-                    <div>
-                        <h4>Propositos</h4>
-                        <ul className="checkList">
-                            {purposes.map(purpose => {
-                                const isChecked = gamePurposes.includes(purpose)
-                                return (
-                                    <li key={purpose}>
-                                        <div className="form-check mb-3">
-                                            <label htmlFor={"has-purpose-" + purpose} className="form-check-label">{purpose}</label>
-                                            <input id={"has-purpose-" + purpose} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onPurposeToggle(purpose)} />
-                                        </div>
-                                    </li>)
-                            })
-                            }
-                        </ul>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor={"content-validation-" + game.name} className="form-label">Validación de contenido:</label>
-                        <input id={"content-validation-" + game.name} type="text" className="form-control" value={contentValidation} onChange={onContentValidationChange} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor={"observations-and-suggestions-" + game.name} className="form-label">Observaciones y sugerencias:</label>
-                        <input id={"observations-and-suggestions-" + game.name} type="text" className="form-control" value={observationsAndSuggestions} onChange={onObservationsAndSuggestionsChange} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor={"score-" + game.name} className="form-label">Puntaje:</label>
-                        <input id={"score-" + game.name} type="number" className="form-control" value={score} onChange={onScoreChange} />
-                    </div>
-                    <div>
-                        <h4>Mercados</h4>
-                        <ul className="checkList">
-                            {markets.map(market => {
-                                const isChecked = gameMarkets.includes(market)
-                                return (
-                                    <li key={market}>
-                                        <div className="form-check mb-3">
-                                            <label htmlFor={"has-market-" + market} className="form-check-label">{market}</label>
-                                            <input id={"has-market-" + market} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onMarketToggle(market)} />
-                                        </div>
-                                    </li>)
-                            })
-                            }
-                        </ul>
-                    </div>
-                    <div>
-                        <h4>Publicos</h4>
-                        <ul className="checkList">
-                            {publics.map(gamePublic => {
-                                const isChecked = gamePublics.includes(gamePublic)
-                                return (
-                                    <li key={gamePublic}>
-                                        <div className="form-check mb-3">
-                                            <label htmlFor={"has-public-" + gamePublic} className="form-check-label">{gamePublic}</label>
-                                                <input id={"has-public-" + gamePublic} type="checkbox" className="form-check-input" checked={isChecked} onChange={() => onPublicToggle(gamePublic)} />
-                                        </div>
-                                    </li>)
-                            })
-                            }
-                        </ul>
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor={"other-" + game.name} className="form-label">Otro:</label>
-                        <input id={"other-" + game.name} type="text" className="form-control" value={others} onChange={onOthersChange} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor={"game-url-" + game.name} className="form-label">URL del juego:</label>
-                        <input id={"game-url-" + game.name} type="text" className="form-control" value={link} onChange={onLinkChange} />
-                    </div>
-                    <div className="mb-3">
-                        <label htmlFor={"image-url-" + game.name} className="form-label">URL de la imagen:</label>
-                        <input id={"image-url-" + game.name} type="text" className="form-control" value={imageLink} onChange={onImageLinkChange} />
-                    </div>
-                    {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={() => onGameDelete(String(game._id))}>Borrar juego</button></div> : null}
-                    <div>
-                        {!isNewGame ?
-                            <>
-                                <div className="mb-3"><button type="button" className="btn btn-primary" onClick={() => onGameUpdate()}>Actualizar juego</button></div>
-                                <div><button type="button" className="btn btn-secondary" onClick={onToggleEdit}>Dejar de editar</button></div>
-                            </>
-                            : <button type="button" className="btn btn-primary" onClick={() => onGameCreate(editedGame)}>Agregar juego</button>
-                        }
-                    </div>
-                </form>
-            </div>
-        </div>
-    </Popup>       
+                </div>
+            </Popup>
+        </>
     )
 }
