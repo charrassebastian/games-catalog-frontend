@@ -95,7 +95,11 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
         mutationFn: (game: Game) => axios.post(baseUrl + 'game', { game })
     })
 
-    const onGameUpdate = () => updateGameMutation.mutate()
+    const onGameUpdate = () => {
+        updateGameMutation.mutate()
+        closePopup()
+    }
+
     const onGameCreate = (game: Game) => {
         createGameMutation.mutate(game)
         closePopup()
@@ -223,8 +227,8 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                     </>
                                     :
                                     <>
-                                        <button type="button" className="btn btn-primary" onClick={() => onGameCreate(editedGame)}>Guardar juego</button>
-                                        <button type="button" className="btn btn-primary" onClick={() => setIsOpen(false)}>Cerrar</button>
+                                        <div className="mb-3"><button type="button" className="btn btn-primary" onClick={() => onGameCreate(editedGame)}>Guardar juego</button></div>
+                                        <div><button type="button" className="btn btn-secondary" onClick={closePopup}>Cerrar</button></div>
                                     </>
                                 }
                             </div>
