@@ -13,11 +13,11 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
     area: string,
     onAreaChange: (area: string) => void,
     purpose: string,
-    onPurposeChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    onPurposeChange: (purpose: string) => void,
     market: string,
-    onMarketChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    onMarketChange: (market: string) => void,
     gamePublic: string,
-    onGamePublicChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+    onGamePublicChange: (gamePublic: string) => void
 }) {
     // TODO: add all the inputs for the filters and check that they work
     return (
@@ -28,52 +28,121 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                         <img src="" className="d-block mx-lg-auto img-fluid" alt="" height="200" loading="lazy" />
                     </div>
                     <div className="col-lg-6 px-3 px-md5">
-                        <h1 className="display-1 fw-bold text-body-emphasis bs-light lh-1 mb-3">Juegos Serios</h1>
+                        <h1 className="display-1 fw-bold text-body-emphasis bs-light lh-1 m-3">Juegos Serios</h1>
                         <br />
-                        <h2 className="introductory-text">Encontra el juego que estas buscando.</h2>
+                        <h2 className="introductory-text m-3">Encontra el juego que estas buscando.</h2>
                         <br />
-                        <p className="introductory-text">Ingresa el nombre del juego que estes buscando y luego hace click en el boton Buscar.</p>
+                        <p className="introductory-text m-3">Ingresa el nombre del juego que estes buscando y luego hace click en el boton Buscar.</p>
                     </div>
-                    <form className="d-flex d-grid gap-3 d-md-flex justify-content-md-start" role="search" onSubmit={(e) => e.preventDefault()}>
-                        <input
-                            className="form-control me-"
-                            type="search"
-                            placeholder="Search"
-                            aria-label="Search"
-                            value={searchValue}
-                            onChange={onSearchValueChange}
-                        />
-                        <button type="button" className="btn btn-light btn-lg px-4" onClick={onSearch}> Buscar </button>
-                        <button type="button" className="btn btn-outline-light btn-lg px-4" onClick={onClear}> Limpiar</button>
-                        <div className="form-check mb-3">
-                            <label htmlFor={"has-goal"} className="form-check-label">Tiene un objetivo?</label>
-                            <input id={"has-goal"} type="checkbox" className="form-check-input" checked={onlyValidatedContent} onChange={onOnlyValidatedContentChange} />
+                    <form className="d-flex flex-column d-grid gap-3 d-md-flex justify-content-md-start" role="search" onSubmit={(e) => e.preventDefault()}>
+                        <div className="d-flex flex-row">
+                            <input
+                                className="form-control m-3"
+                                type="search"
+                                placeholder="Search"
+                                aria-label="Search"
+                                value={searchValue}
+                                onChange={onSearchValueChange}
+                            />
+                            <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}> Buscar </button>
+                            <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}> Limpiar</button>
                         </div>
-                        {/* <div className="mb-3">
-                            <label htmlFor={"area" + game.name} className="form-label">Puntaje:</label>
-                            <input id={"area" + game.name} type="number" className="form-control" value={score} onChange={onScoreChange} />
-                        </div> */}
-                        <div className="btn-group">
-                            <div className="dropdown">
-                                <a
-                                    className="btn btn-secondary dropdown-toggle"
-                                    href="#"
-                                    role="button"
-                                    id="dropdownMenuLink"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    {area}
-                                </a>
-                                <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    {areas.map(area => (
-                                        <li key={area}>
-                                            <a className="dropdown-item" href="#" onClick={() => onAreaChange(area)}>
-                                                {area?.length ? area : "Filter by area"}
-                                            </a>
-                                        </li>
-                                    ))}
-                                </ul>
+                        <div className="d-flex flex-row">
+                            <div className="form-check m-3">
+                                <label htmlFor={"has-goal"} className="form-check-label text-white">Tiene un objetivo?</label>
+                                <input id={"has-goal"} type="checkbox" className="form-check-input" checked={onlyValidatedContent} onChange={onOnlyValidatedContentChange} />
+                            </div>
+                            <div className="btn-group m-3">
+                                <div className="dropdown">
+                                    <a
+                                        className="btn btn-secondary dropdown-toggle"
+                                        href="#"
+                                        role="button"
+                                        id="area-dropdown-menu-link"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        {area?.length ? area : "Filter by area"}
+                                    </a>
+                                    <ul className="dropdown-menu" aria-labelledby="area-dropdown-menu-link">
+                                        {areas.map(area => (
+                                            <li key={area}>
+                                                <a className="dropdown-item" href="#" onClick={() => onAreaChange(area)}>
+                                                    {area}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="btn-group m-3">
+                                <div className="dropdown">
+                                    <a
+                                        className="btn btn-secondary dropdown-toggle"
+                                        href="#"
+                                        role="button"
+                                        id="purpose-dropdown-menu-link"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        {purpose?.length ? purpose : "Filter by purpose"}
+                                    </a>
+                                    <ul className="dropdown-menu" aria-labelledby="purpose-dropdown-menu-link">
+                                        {purposes.map(purpose => (
+                                            <li key={purpose}>
+                                                <a className="dropdown-item" href="#" onClick={() => onPurposeChange(purpose)}>
+                                                    {purpose}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="btn-group m-3">
+                                <div className="dropdown">
+                                    <a
+                                        className="btn btn-secondary dropdown-toggle"
+                                        href="#"
+                                        role="button"
+                                        id="market-dropdown-menu-link"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        {market?.length ? market : "Filter by market"}
+                                    </a>
+                                    <ul className="dropdown-menu" aria-labelledby="market-dropdown-menu-link">
+                                        {markets.map(market => (
+                                            <li key={market}>
+                                                <a className="dropdown-item" href="#" onClick={() => onMarketChange(market)}>
+                                                    {market}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="btn-group m-3">
+                                <div className="dropdown">
+                                    <a
+                                        className="btn btn-secondary dropdown-toggle"
+                                        href="#"
+                                        role="button"
+                                        id="game-public-dropdown-menu-link"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        {gamePublic?.length ? gamePublic : "Filter by public"}
+                                    </a>
+                                    <ul className="dropdown-menu" aria-labelledby="game-public-dropdown-menu-link">
+                                        {publics.map(gamePublic => (
+                                            <li key={gamePublic}>
+                                                <a className="dropdown-item" href="#" onClick={() => onGamePublicChange(gamePublic)}>
+                                                    {gamePublic}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </form>

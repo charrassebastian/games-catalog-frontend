@@ -33,16 +33,16 @@ export const WelcomeScreen = () => {
         setArea(area)
     }
 
-    const onPurposeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setPurpose(e.target.value)
+    const onPurposeChange = (purpose: string) => {
+        setPurpose(purpose)
     }
 
-    const onMarketChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setMarket(e.target.value)
+    const onMarketChange = (market: string) => {
+        setMarket(market)
     }
 
-    const onGamePublicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setGamePublic(e.target.value)
+    const onGamePublicChange = (gamePublic: string) => {
+        setGamePublic(gamePublic)
     }
 
     const onSearch = async () => {
