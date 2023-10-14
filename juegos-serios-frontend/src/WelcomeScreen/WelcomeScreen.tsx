@@ -11,28 +11,53 @@ import { GameList } from '../GameComponents/GameList';
 
 export const WelcomeScreen = () => {
     const { user } = useAuth();
-    const getGames = (value: any) => axios.get(baseUrl + 'games', { params: { value }}).then(res => res.data);
+    const getGames = () => axios.get(baseUrl + 'games', { params: { value: searchValue, onlyValidatedContent, area, purpose, market, public: gamePublic }}).then(res => res.data);
     const [games, setGames] = useState([])
-    const [searchValue, setSearchValue] = useState("")
 
-    const onSearchValueChange = (value: any) => {
-        setSearchValue(value)
+    const [searchValue, setSearchValue] = useState("")
+    const [onlyValidatedContent, setOnlyValidatedContent] = useState(false)
+    const [area, setArea] = useState("")
+    const [purpose, setPurpose] = useState("")
+    const [market, setMarket] = useState("")
+    const [gamePublic, setGamePublic] = useState("")
+
+    const onSearchValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearchValue(e.target.value)
+    }
+
+    const onOnlyValidatedContentChange = () => {
+        setOnlyValidatedContent(!onlyValidatedContent)
+    }
+
+    const onAreaChange = (area: string) => {
+        setArea(area)
+    }
+
+    const onPurposeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPurpose(e.target.value)
+    }
+
+    const onMarketChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setMarket(e.target.value)
+    }
+
+    const onGamePublicChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setGamePublic(e.target.value)
     }
 
     const onSearch = async () => {
-        const tempGames = await getGames(searchValue)
+        const tempGames = await getGames()
         setGames(tempGames.games)
     }
 
     const onClear = () => {
-        setSearchValue("")
         setGames([])
     }
 
     return (
         <>
             <Navbar />
-            <MainSection searchValue={searchValue} onSearchValueChange={onSearchValueChange} onSearch={onSearch} onClear={onClear} />
+            <MainSection onSearch={onSearch} onClear={onClear} searchValue={searchValue} onSearchValueChange={onSearchValueChange} onlyValidatedContent={onlyValidatedContent} onOnlyValidatedContentChange={onOnlyValidatedContentChange} area={area} onAreaChange={onAreaChange} purpose={purpose} onPurposeChange={onPurposeChange} market={market} onMarketChange={onMarketChange} gamePublic={gamePublic} onGamePublicChange={onGamePublicChange} />
             {/* <GameList games={games} isEditable={user ? true : false}/> Picks the appropriate game component */}
             <GameList games={games} isEditable={true}/> {/* Picks the appropriate game component */}
             <Features />
