@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
+// import { useAuth } from '../contexts/AuthContext';
 import { Navbar } from '../Navbar/Navbar';
 import { Features } from '../Features/Features';
 import { Footer } from '../Footer/Footer';
@@ -10,7 +10,7 @@ import axios from 'axios';
 import { GameList } from '../GameComponents/GameList';
 
 export const WelcomeScreen = () => {
-    const { user } = useAuth();
+    // const { user } = useAuth();
     const getGames = () => axios.get(baseUrl + 'games', { params: { value: searchValue, onlyValidatedContent, area, purpose, market, public: gamePublic }}).then(res => res.data);
     const [games, setGames] = useState([])
 
