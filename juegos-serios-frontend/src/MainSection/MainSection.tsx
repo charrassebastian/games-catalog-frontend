@@ -39,7 +39,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             <input
                                 className="form-control m-3"
                                 type="search"
-                                placeholder="Search"
+                                placeholder="Search"    
                                 aria-label="Search"
                                 value={searchValue}
                                 onChange={onSearchValueChange}
@@ -49,8 +49,8 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                         </div>
                         <div className="d-flex flex-row">
                             <div className="form-check m-3">
-                                <label htmlFor={"has-goal"} className="form-check-label text-white">Tiene un objetivo?</label>
-                                <input id={"has-goal"} type="checkbox" className="form-check-input" checked={onlyValidatedContent} onChange={onOnlyValidatedContentChange} />
+                                <label htmlFor={"only-validated-content"} className="form-check-label text-white">Incluir solo contenido validado?</label>
+                                <input id={"only-validated-content"} type="checkbox" className="form-check-input" checked={onlyValidatedContent} onChange={onOnlyValidatedContentChange} />
                             </div>
                             <div className="btn-group m-3">
                                 <div className="dropdown">
@@ -62,7 +62,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {area?.length ? area : "Filter by area"}
+                                        {area?.length ? area : "Filtrar por area"}
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="area-dropdown-menu-link">
                                         {areas.map(area => (
@@ -85,7 +85,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {purpose?.length ? purpose : "Filter by purpose"}
+                                        {purpose?.length ? purpose : "Filtrar por proposito"}
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="purpose-dropdown-menu-link">
                                         {purposes.map(purpose => (
@@ -108,7 +108,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {market?.length ? market : "Filter by market"}
+                                        {market?.length ? market : "Filtrar por mercado"}
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="market-dropdown-menu-link">
                                         {markets.map(market => (
@@ -131,7 +131,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {gamePublic?.length ? gamePublic : "Filter by public"}
+                                        {gamePublic?.length ? gamePublic : "Filtrar por publico"}
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="game-public-dropdown-menu-link">
                                         {publics.map(gamePublic => (

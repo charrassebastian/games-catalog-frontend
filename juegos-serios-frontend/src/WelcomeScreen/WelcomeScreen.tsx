@@ -52,6 +52,12 @@ export const WelcomeScreen = () => {
 
     const onClear = () => {
         setGames([])
+        setSearchValue("")
+        setOnlyValidatedContent(false)
+        setArea("")
+        setPurpose("")
+        setMarket("")
+        setGamePublic("")
     }
 
     return (
