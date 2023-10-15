@@ -37,7 +37,7 @@ input[type]{
   padding-top: 8rem;
   height: inherit;
   width: inherit;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .introductory-text {

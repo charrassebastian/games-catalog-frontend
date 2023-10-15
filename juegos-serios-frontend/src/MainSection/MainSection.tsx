@@ -35,7 +35,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                         <p className="introductory-text m-3">Ingresa el nombre del juego que estes buscando y luego hace click en el boton Buscar.</p>
                     </div>
                     <form className="d-flex flex-column d-grid gap-3 d-md-flex justify-content-md-start" role="search" onSubmit={(e) => e.preventDefault()}>
-                        <div className="d-flex flex-row">
+                        <div className="d-flex flex-row flex-wrap">
                             <input
                                 className="form-control m-3"
                                 type="search"
@@ -47,7 +47,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}> Buscar </button>
                             <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}> Limpiar</button>
                         </div>
-                        <div className="d-flex flex-row">
+                        <div className="d-flex flex-row flex-wrap">
                             <div className="form-check m-3">
                                 <label htmlFor={"only-validated-content"} className="form-check-label text-white">Incluir solo contenido validado?</label>
                                 <input id={"only-validated-content"} type="checkbox" className="form-check-input" checked={onlyValidatedContent} onChange={onOnlyValidatedContentChange} />
