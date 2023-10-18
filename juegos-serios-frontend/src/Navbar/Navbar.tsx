@@ -1,4 +1,14 @@
-export function Navbar() {
+import { useState } from 'react';
+import { Login } from '../Login/Login';
+import Popup from '../Popup/popup'
+
+export function Navbar({isLoggedIn}) {
+    const [isOpen, setIsOpen] = useState(isLoggedIn);
+
+    const closePopup = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
         <header>
             <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -27,7 +37,13 @@ export function Navbar() {
                                 <a className="nav-link" href="#">About</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">Log in</a>
+                                {!isLoggedIn ? <a className="nav-link" onClick={() => setIsOpen(true)}>Log in</a> : <a>Logout</a>}
+                                <Popup isOpen={!isOpen}>
+                                    <div className='loginPopUp'>
+                                        <div className='closeLoginPopUp' onClick={closePopup}>X</div>
+                                        <Login />
+                                    </div>                                    
+                                </Popup>                                
                             </li>
                         </ul>
                         {/* <form className="d-flex" role="search">

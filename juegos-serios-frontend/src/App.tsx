@@ -14,7 +14,7 @@ function App() {
       {isLoggedIn ?
         <AuthProvider>
           <QueryClientProvider client={queryClient}>
-            <WelcomeScreen />
+            <WelcomeScreen isLoggedIn={isLoggedIn}/>
           </QueryClientProvider>
         </AuthProvider>
         : <Login />}

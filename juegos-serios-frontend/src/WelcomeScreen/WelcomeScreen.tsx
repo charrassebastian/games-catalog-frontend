@@ -9,7 +9,7 @@ import { baseUrl } from '../constants/url'
 import axios from 'axios';
 import { GameList } from '../GameComponents/GameList';
 
-export const WelcomeScreen = () => {
+export const WelcomeScreen = ({isLoggedIn}) => {
     // const { user } = useAuth();
     const getGames = () => axios.get(baseUrl + 'games', { 
         params: { 
@@ -75,7 +75,7 @@ export const WelcomeScreen = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar isLoggedIn={isLoggedIn}/>
             <MainSection onSearch={onSearch} onClear={onClear} searchValue={searchValue} onSearchValueChange={onSearchValueChange} onlyValidatedContent={onlyValidatedContent} onOnlyValidatedContentChange={onOnlyValidatedContentChange} area={area} onAreaChange={onAreaChange} purpose={purpose} onPurposeChange={onPurposeChange} market={market} onMarketChange={onMarketChange} gamePublic={gamePublic} onGamePublicChange={onGamePublicChange} />
             {/* <GameList games={games} isEditable={user ? true : false}/> Picks the appropriate game component */}
             <GameList games={games} isEditable={true}/> {/* Picks the appropriate game component */}
