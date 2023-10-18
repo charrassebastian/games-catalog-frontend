@@ -1,1 +1,1 @@
-export const baseUrl = 'https://juegos-serios-backend.onrender.com'
+export const baseUrl = 'https://juegos-serios-backend.onrender.com/api/'

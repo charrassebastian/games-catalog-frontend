@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Login } from '../Login/Login';
 import Popup from '../Popup/popup'
 
-export function Navbar({isLoggedIn}) {
+export function Navbar({isLoggedIn}: {isLoggedIn: boolean}) {
     const [isOpen, setIsOpen] = useState(isLoggedIn);
 
     const closePopup = () => {

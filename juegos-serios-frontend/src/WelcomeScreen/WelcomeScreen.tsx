@@ -9,7 +9,7 @@ import { baseUrl } from '../constants/url'
 import axios from 'axios';
 import { GameList } from '../GameComponents/GameList';
 
-export const WelcomeScreen = ({isLoggedIn}) => {
+export const WelcomeScreen = ({isLoggedIn = false}: {isLoggedIn: boolean}) => {
     // const { user } = useAuth();
     const getGames = () => axios.get(baseUrl + 'games', { 
         params: { 
