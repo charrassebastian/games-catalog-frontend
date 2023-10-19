@@ -89,10 +89,10 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     }
 
     const updateGameMutation = useMutation({
-        mutationFn: () => axios.put(baseUrl + 'game', { game: editedGame }, { params: { id: game._id } })
+        mutationFn: () => axios.put(baseUrl + 'game', { game: editedGame }, { params: { id: game._id }, headers: { authentication: localStorage.getItem('token') } })
     })
     const createGameMutation = useMutation({
-        mutationFn: (game: Game) => axios.post(baseUrl + 'game', { game })
+        mutationFn: (game: Game) => axios.post(baseUrl + 'game', { game }, { headers: { authentication: localStorage.getItem('token') }})
     })
 
     const onGameUpdate = () => {

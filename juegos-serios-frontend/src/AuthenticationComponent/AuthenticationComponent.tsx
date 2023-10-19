@@ -1,9 +1,16 @@
 import { useState } from 'react'
-import { Login } from '../Login/Login';
+import { Login } from '../Login/Login'
+import { baseUrl } from '../constants/url'
+import axios from 'axios'
 
 export const AuthenticationComponent = () => {
-    const isLoggedIn = false;
     const [isLoginOpened, setIsLoginOpened] = useState(false)
+    const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"))
+
+    const showLoginError = () => {
+        // using a custom popup could improve this
+        alert("An error occurred when trying to log in")
+    }
 
     const handleLoginClose = () => {
         setIsLoginOpened(false);
@@ -13,12 +20,23 @@ export const AuthenticationComponent = () => {
         setIsLoginOpened(true);
     }
 
-    const handleLoginSubmit= () => {
-        setIsLoginOpened(false);
+    const handleLoginSubmit = async (username: string, password: string) => {
+        const { data } = await axios.post(baseUrl + 'login', { username, password })
+        if (data?.token) {
+            localStorage.setItem('token', data.token)
+            setIsLoginOpened(false)
+            // to prevent issues, reload the page
+            window.location.reload()
+        } else {
+            showLoginError();
+        }
     }
 
     const handleLogout = () => {
         localStorage.removeItem('token');
+        setIsLoggedIn(false)
+        // to prevent issues, reload the page
+        window.location.reload()
     }
 
     return (
@@ -30,9 +48,6 @@ export const AuthenticationComponent = () => {
             { isLoginOpened
             ?   <Login handleClose={handleLoginClose} handleLogin={handleLoginSubmit} />
             :    null}
-            {/* <Popup isOpen={isLoginOpened}>
-                <Login handleClose={handleLoginClose} handleLogin={handleLoginSubmit} />
-            </Popup> */}
         </>
     )
 }

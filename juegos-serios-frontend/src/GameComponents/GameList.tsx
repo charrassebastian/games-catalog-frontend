@@ -15,7 +15,7 @@ export function GameList({ games, isEditable }: { games: Game[], isEditable: boo
     }, [games])
 
     const deleteGameMutation = useMutation({
-        mutationFn: (id: string) => axios.delete(baseUrl + 'game', { params: { id } })
+        mutationFn: (id: string) => axios.delete(baseUrl + 'game', { params: { id }, headers: { authentication: localStorage.getItem('token') } })
     })
 
     const onGameDelete = (id: string) => {

@@ -77,7 +77,7 @@ export const WelcomeScreen = () => {
         <>
             <AuthenticationComponent/>
             <MainSection onSearch={onSearch} onClear={onClear} searchValue={searchValue} onSearchValueChange={onSearchValueChange} onlyValidatedContent={onlyValidatedContent} onOnlyValidatedContentChange={onOnlyValidatedContentChange} area={area} onAreaChange={onAreaChange} purpose={purpose} onPurposeChange={onPurposeChange} market={market} onMarketChange={onMarketChange} gamePublic={gamePublic} onGamePublicChange={onGamePublicChange} />
-            <GameList games={games} isEditable={true}/>
+            <GameList games={games} isEditable={!!localStorage.getItem("token")}/>
             <Features />
             <Footer />
         </>
