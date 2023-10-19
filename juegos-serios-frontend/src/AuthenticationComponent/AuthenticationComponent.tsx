@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Popup from '../Popup/popup';
 import { Login } from '../Login/Login';
 
 export const AuthenticationComponent = () => {

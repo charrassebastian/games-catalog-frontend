@@ -11,7 +11,6 @@ import { GameList } from '../GameComponents/GameList';
 
 export const WelcomeScreen = () => {
     // const { user } = useAuth();
-    const isLoggedIn = true;
     const getGames = () => axios.get(baseUrl + 'games', { 
         params: { 
             value: searchValue, 
