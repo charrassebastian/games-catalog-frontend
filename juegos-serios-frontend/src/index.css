@@ -11,7 +11,7 @@
 .gradient-background {
   background: linear-gradient(300deg, #163172, #1e56a0, #d6e4f0);
   background-size: 180% 180%;
-  animation: gradient-animation 18s ease infinite;
+  /* animation: gradient-animation 18s ease infinite; */
 }
 
 @keyframes gradient-animation {
@@ -73,7 +73,6 @@ input[type]{
 
 .formLogin > Input{
   margin-top: 10%;
-  
   padding-top: 5%;
   padding-bottom: 5%;
 
@@ -84,14 +83,14 @@ input[type]{
   border-radius: 4px;
 }
 
-.formLogin button{
+/* .formLogin button{
   margin-top: 10%;
   
   padding-top: 5%;
   padding-bottom: 5%;
 
   background-color: rgb(149, 187, 61);
-}
+} */
 
 .loginPopUp{
   background-color: rgb(239, 243, 255);
@@ -101,7 +100,7 @@ input[type]{
   margin-top: 15%;
   left: 40%;
   transform: translate(-50%, 50%);
-
+  z-index: 500;
   border-radius: 25px;
 
   box-shadow: 5px 10px;
@@ -109,11 +108,11 @@ input[type]{
   padding: 3%;
 }
 
-.closeLoginPopUp {
+/* .closeLoginPopUp {
   position: absolute;
   top: 5%;
   left: 5%;
-}
+} */
 
 /* ****************Features**************** */
 img {

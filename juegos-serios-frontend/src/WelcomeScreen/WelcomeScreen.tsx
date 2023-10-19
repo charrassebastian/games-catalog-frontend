@@ -1,16 +1,17 @@
 import { useState } from 'react';
 // import { useAuth } from '../contexts/AuthContext';
-import { Navbar } from '../Navbar/Navbar';
+import { AuthenticationComponent } from '../AuthenticationComponent/AuthenticationComponent';
 import { Features } from '../Features/Features';
 import { Footer } from '../Footer/Footer';
 import { MainSection } from '../MainSection/MainSection';
-import { baseUrl } from '../constants/url'
+import { baseUrl } from '../constants/url';
 
 import axios from 'axios';
 import { GameList } from '../GameComponents/GameList';
 
-export const WelcomeScreen = ({isLoggedIn = false}: {isLoggedIn: boolean}) => {
+export const WelcomeScreen = () => {
     // const { user } = useAuth();
+    const isLoggedIn = true;
     const getGames = () => axios.get(baseUrl + 'games', { 
         params: { 
             value: searchValue, 
@@ -75,10 +76,9 @@ export const WelcomeScreen = ({isLoggedIn = false}: {isLoggedIn: boolean}) => {
 
     return (
         <>
-            <Navbar isLoggedIn={isLoggedIn}/>
+            <AuthenticationComponent/>
             <MainSection onSearch={onSearch} onClear={onClear} searchValue={searchValue} onSearchValueChange={onSearchValueChange} onlyValidatedContent={onlyValidatedContent} onOnlyValidatedContentChange={onOnlyValidatedContentChange} area={area} onAreaChange={onAreaChange} purpose={purpose} onPurposeChange={onPurposeChange} market={market} onMarketChange={onMarketChange} gamePublic={gamePublic} onGamePublicChange={onGamePublicChange} />
-            {/* <GameList games={games} isEditable={user ? true : false}/> Picks the appropriate game component */}
-            <GameList games={games} isEditable={true}/> {/* Picks the appropriate game component */}
+            <GameList games={games} isEditable={true}/>
             <Features />
             <Footer />
         </>

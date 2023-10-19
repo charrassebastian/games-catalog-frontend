@@ -1,11 +1,20 @@
-import {Input} from './Input';
+import { useState } from 'react';
 
-export function Login() {
+export function Login({ handleClose, handleLogin }: { handleClose: () => void, handleLogin: (username: string, password: string) => void }) {
+  const [username, setUsername] = useState("")
+  const [password, setPassword] = useState("")
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) => setUsername(e.target.value)
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)
+
   return (
-    <form className="formLogin background-gradient">
-      <Input type="text" placeholder="Username" />
-      <Input type="password" placeholder="Password" />
-      <button type="submit">Login</button>
-    </form>
+    <div className='loginPopUp'>
+      <div className="formLogin background-gradient">
+        <input type="text" placeholder="Username" onChange={handleUsernameChange} />
+        <input className='mb-3' type="password" placeholder="Password" onChange={handlePasswordChange} />
+        <button className='mb-3' onClick={() => handleLogin(username, password)}>Login</button>
+        <button className='mb-3 closeLoginPopUp' onClick={handleClose}>Close</button>
+      </div>
+    </div>  
   );
 }
