@@ -10,6 +10,7 @@ export const AuthenticationComponent = () => {
     const showLoginError = () => {
         // using a custom popup could improve this
         alert("An error occurred when trying to log in")
+        console.log("An error occurred when trying to log in")
     }
 
     const handleLoginClose = () => {
@@ -21,13 +22,17 @@ export const AuthenticationComponent = () => {
     }
 
     const handleLoginSubmit = async (username: string, password: string) => {
-        const { data } = await axios.post(baseUrl + 'login', { username, password })
-        if (data?.token) {
-            localStorage.setItem('token', data.token)
-            setIsLoginOpened(false)
-            // to prevent issues, reload the page
-            window.location.reload()
-        } else {
+        try {
+            const { data } = await axios.post(baseUrl + 'login', { username, password })
+            if (data?.token?.length) {
+                localStorage.setItem('token', data.token)
+                setIsLoginOpened(false)
+                // to prevent issues, reload the page
+                window.location.reload()
+            } else {
+                showLoginError();
+            }
+        } catch {
             showLoginError();
         }
     }
@@ -42,12 +47,12 @@ export const AuthenticationComponent = () => {
     return (
         <>
             <div className="position-relavite">
-                { isLoggedIn ? <button className="btn btn-light log-btn position-absolute m-3 top-0 end-0" onClick={handleLogout}>Logout</button> : <button className="btn btn-light log-btn position-absolute m-3 top-0 end-0" onClick={handleOpenLogin}>Login</button>}
+                {isLoggedIn ? <button className="btn btn-light log-btn position-absolute m-3 top-0 end-0" onClick={handleLogout}>Logout</button> : <button className="btn btn-light log-btn position-absolute m-3 top-0 end-0" onClick={handleOpenLogin}>Login</button>}
             </div>
 
-            { isLoginOpened
-            ?   <Login handleClose={handleLoginClose} handleLogin={handleLoginSubmit} />
-            :    null}
+            {isLoginOpened
+                ? <Login handleClose={handleLoginClose} handleLogin={handleLoginSubmit} />
+                : null}
         </>
     )
 }
