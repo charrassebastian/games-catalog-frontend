@@ -111,7 +111,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
 
     return (
         <>
-            {isNewGame ? <button className='btn btn-primary' onClick={() => setIsOpen(true)}>Agregar juego</button> : null}
+            {isNewGame ? <button className='btn btn-primary w-75' onClick={() => setIsOpen(true)}>Agregar juego</button> : null}
             <Popup isOpen={isOpen}>
                 <div className="card m-3">
                     {game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null}

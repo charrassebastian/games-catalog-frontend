@@ -19,9 +19,8 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
     gamePublic: string,
     onGamePublicChange: (gamePublic: string) => void
 }) {
-    // TODO: add all the inputs for the filters and check that they work
     return (
-        <section className="gradient-background home vw-100">
+        <section className="gradient-background home">
             <div className="container col-xxl-8 px-3 px-md5 " >
                 <div className="row flex-lg-row-reverse align-items-center g-5 pt-5">
                     <div className="col-10 col-sm-8 col-lg-6">

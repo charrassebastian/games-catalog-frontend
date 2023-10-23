@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { useAuth } from '../contexts/AuthContext';
 import { AuthenticationComponent } from '../AuthenticationComponent/AuthenticationComponent';
 import { Features } from '../Features/Features';
 import { Footer } from '../Footer/Footer';
@@ -10,7 +9,6 @@ import axios from 'axios';
 import { GameList } from '../GameComponents/GameList';
 
 export const WelcomeScreen = () => {
-    // const { user } = useAuth();
     const getGames = () => axios.get(baseUrl + 'games', { 
         params: { 
             value: searchValue, 

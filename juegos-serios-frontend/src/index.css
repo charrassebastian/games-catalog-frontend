@@ -3,8 +3,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 /*******************************BACKGROUND GRADIENT ******************************/
@@ -205,8 +204,8 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  /* min-width: 320px; */
+  /* min-height: 100vh; */
   overflow-x: hidden;
 }
 
@@ -285,4 +284,13 @@ button:focus-visible {
 
 .card {
   /* width: 90%; */
+}
+
+#root {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.dropdown-menu {
+  z-index: 10;
 }
