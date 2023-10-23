@@ -278,3 +278,41 @@ button:focus-visible {
 .dropdown-menu {
   z-index: 10;
 }
+
+.short-card{
+  background: white;
+  width: 270px;
+  margin: 10px;
+  border-radius: 15px ;
+}
+
+.short-card-image{
+  height: 170px;
+  margin-bottom: 15px;
+  background-size:cover;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.short-car-1{
+  background-image: url("https://thumbs.dreamstime.com/b/rock-heavy-metal-hard-music-skeleton-hand-symbol-vector-icon-178435493.jpg");
+}
+
+
+.short-card a {
+  background-color: black;
+  color:wheat;
+  padding: 15px 20px;
+  display: block;
+  text-align: center;
+  margin: 20px 50px;
+  border-radius: 15px 15px 15px 15px;
+  text-decoration: none;
+}
+
+.short-card :hover {
+  background-color: rgb(62,62,62);
+  color: white;
+  cursor:pointer;
+  transform: scale(1.03);
+  transition: all 1s ease;
+}
