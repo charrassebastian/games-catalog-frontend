@@ -48,13 +48,21 @@ input[type]{
   color: #f6f6f6;
 }
 
-.card{
-  padding: 0;
-  width: 25%;
+.cardContainer{
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.card > img{
-  width: 100%;
+.card{
+  min-width: 50%;
+  padding: 0;
+  /* width: 25%; */
+}
+
+.card > .card-img-top{
+  max-width: 100%;
+    height: auto;
+    width: auto\9;
 }
 
 .bgcolor-about {
@@ -64,11 +72,6 @@ input[type]{
 /*LOGIN*/
 .formLogin{
   display:grid;
-  flex-wrap: center;
-  /* position: fixed; */
-  /* top: 30%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, 50%); */
 }
 
 .formLogin > Input{
@@ -83,23 +86,15 @@ input[type]{
   border-radius: 4px;
 }
 
-/* .formLogin button{
-  margin-top: 10%;
-  
-  padding-top: 5%;
-  padding-bottom: 5%;
-
-  background-color: rgb(149, 187, 61);
-} */
 
 .loginPopUp{
-  background-color: rgb(239, 243, 255);
+  background-color: rgb(243, 251, 253);
+
   display:grid;
+
   flex-wrap: center;
   position: fixed;
-  margin-top: 15%;
-  left: 40%;
-  transform: translate(-50%, 50%);
+  
   z-index: 500;
   border-radius: 25px;
 
@@ -108,11 +103,32 @@ input[type]{
   padding: 3%;
 }
 
-/* .closeLoginPopUp {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-} */
+@media (max-height:400px){
+  .loginPopUp{
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+@media (min-height:350px){
+  .loginPopUp{
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+@media (min-height:700px){
+  .loginPopUp{
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+}
+
+.closeLoginPopUp {
+  background-color: #0b81e9;
+}
 
 /* ****************Features**************** */
 img {
@@ -268,5 +284,5 @@ button:focus-visible {
 }
 
 .card {
-  width: 90%;
+  /* width: 90%; */
 }
