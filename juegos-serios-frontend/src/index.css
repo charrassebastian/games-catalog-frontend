@@ -274,3 +274,7 @@ button:focus-visible {
   width: 100%;
   overflow-x: hidden;
 }
+
+.dropdown-menu {
+  z-index: 10;
+}
