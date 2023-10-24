@@ -51,7 +51,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             <div className="btn-group m-3">
                                 <div className="dropdown">
                                     <a
-                                        className="btn btn-secondary dropdown-toggle"
+                                        className="btn btn-light dropdown-toggle"
                                         href="#"
                                         role="button"
                                         id="area-dropdown-menu-link"
@@ -74,7 +74,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             <div className="btn-group m-3">
                                 <div className="dropdown">
                                     <a
-                                        className="btn btn-secondary dropdown-toggle"
+                                        className="btn btn-light dropdown-toggle"
                                         href="#"
                                         role="button"
                                         id="purpose-dropdown-menu-link"
@@ -97,7 +97,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             <div className="btn-group m-3">
                                 <div className="dropdown">
                                     <a
-                                        className="btn btn-secondary dropdown-toggle"
+                                        className="btn btn-light dropdown-toggle"
                                         href="#"
                                         role="button"
                                         id="market-dropdown-menu-link"
@@ -120,7 +120,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             <div className="btn-group m-3">
                                 <div className="dropdown">
                                     <a
-                                        className="btn btn-secondary dropdown-toggle"
+                                        className="btn btn-light dropdown-toggle"
                                         href="#"
                                         role="button"
                                         id="game-public-dropdown-menu-link"
