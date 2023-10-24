@@ -14,7 +14,7 @@ export const ShortGameCard = ({ game, onShowMore }: { game: Game, onShowMore: ()
                 </div>
                 <div className="short-card-bottom">
                     <p className="short-card-info">
-                        <b>Descripción:</b> {game.description}<br />
+                        {game.description}<br />
                     </p>
                     <button className="btn btn-primary" onClick={onShowMore}>Ver más</button>
                 </div>

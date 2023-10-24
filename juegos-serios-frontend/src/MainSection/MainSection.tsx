@@ -23,10 +23,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
         <section className="gradient-background home">
             <div className="container col-xxl-8 px-3 px-md5 " >
                 <div className="row flex-lg-row-reverse align-items-center g-5 pt-5">
-                    <div className="col-10 col-sm-8 col-lg-6">
-                        <img src="" className="d-block mx-lg-auto img-fluid" alt="" height="200" loading="lazy" />
-                    </div>
-                    <div className="col-lg-6 px-3 px-md5">
+                    <div className="px-3 px-md5">
                         <h1 className="display-1 fw-bold text-body-emphasis bs-light lh-1 m-3">Juegos Serios</h1>
                         <br />
                         <h2 className="introductory-text m-3">Encontra el juego que estas buscando.</h2>

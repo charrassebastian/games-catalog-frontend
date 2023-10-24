@@ -1,7 +1,7 @@
 export function Features() {
     return (
         <section id="features">
-            <div className="container mt-5">
+            <div className="container">
                 <div className="container px-4 py-5" id="hanging-icons">
                     <h2 id="Features-h1">Qué ofrece:</h2>
                     <div className="contenedorFeatures d-flex justify-content-around">

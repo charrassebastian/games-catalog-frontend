@@ -33,7 +33,7 @@ input[type]{
 }
 
 .home {
-  padding-top: 8rem;
+  padding-top: 4rem;
   height: inherit;
   width: inherit;
   min-height: 100vh;
@@ -300,6 +300,15 @@ button:focus-visible {
   text-align: left;
 }
 
+.short-card button {
+  background-color: #1e56a0;
+}
+
+.short-card button :hover {
+  background-color: #1e56a0;
+  border-color: #1e56a0;
+}
+
 .short-card-top {
   border-radius: 25px 25px 0 0;
   width: 100%;
@@ -329,8 +338,4 @@ button:focus-visible {
 
 .short-card-bottom {
   padding: 20px;
-}
-
-.short-card-info {
-  color: #163172;
 }
