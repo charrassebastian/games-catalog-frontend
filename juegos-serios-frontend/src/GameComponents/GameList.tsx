@@ -1,4 +1,4 @@
-import GameCard from './GameCard'
+// import GameCard from './GameCard'
 import Game from '../types/Game'
 import { EditableCard } from './EditableCard'
 import { emptyGame } from '../../examples/emptyGame'
@@ -6,6 +6,7 @@ import { useMutation } from '@tanstack/react-query'
 import { baseUrl } from '../constants/url'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { GameCard } from './GameCard'
 
 export function GameList({ games, isEditable }: { games: Game[], isEditable: boolean }) {
     const [currentGames, setCurrentGames] = useState([...games])
