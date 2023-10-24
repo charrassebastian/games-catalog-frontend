@@ -80,8 +80,8 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                     </ul>
                 </div>
                 <p className="card-text text-dark">{'Otro: ' + game.others}</p>
-                <a href={game.link} className="btn btn-primary mb-3">Abrir página web</a>
-                <button className="btn btn-secondary mb-3" onClick={onClose}>Cerrar</button>
+                <div><a href={game.link} className="btn btn-primary mb-3">Abrir página web</a></div>
+                <div><button className="btn btn-secondary mb-3" onClick={onClose}>Cerrar</button></div>
                 {isEditable ?
                     <div>
                         <button type="button" className="btn btn-secondary" onClick={onToggleEdit}>Editar</button>

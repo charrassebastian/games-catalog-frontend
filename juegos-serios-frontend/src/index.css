@@ -319,24 +319,17 @@ button:focus-visible {
 
 .short-card {
   border-radius: 25px;
-  position: relative;
-  padding: 25px 15px;
-  background-color: #d6e4f0;
-  padding-top: 55px;
-  margin: 50px 0;
+  /* background-color: #d6e4f0; */
   box-shadow: 0 2px 5px #ccc;
   text-align: left;
 }
 
 .short-card-top {
   border-radius: 25px 25px 0 0;
-  height: 100px;
   width: 100%;
   background-color: #1e56a0;
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
+  align-items: center;
 }
 
 .short-card-name {
@@ -344,11 +337,11 @@ button:focus-visible {
   color: white;
   display: flex;
   flex: 1;
-  margin: 10% 20px 0;
+  margin: 20px;
 }
 
 .short-card img {
-  margin: 30px 20px 0 0;
+  margin: 20px;
 }
 
 .short-card-circle-img {
@@ -359,10 +352,10 @@ button:focus-visible {
 }
 
 .short-card-bottom {
-  margin-top: 120px;
+  /* margin-top: 120px; */
+  padding: 20px;
 }
 
 .short-card-info {
-  margin: 20px 0;
   color: #163172;
 }

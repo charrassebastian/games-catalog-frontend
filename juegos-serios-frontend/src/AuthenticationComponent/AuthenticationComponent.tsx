@@ -9,8 +9,8 @@ export const AuthenticationComponent = () => {
 
     const showLoginError = () => {
         // using a custom popup could improve this
-        alert("An error occurred when trying to log in")
-        console.log("An error occurred when trying to log in")
+        const msg = "Un error ocurrió al intentar iniciar sesión"
+        alert(msg)
     }
 
     const handleLoginClose = () => {
