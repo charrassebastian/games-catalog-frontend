@@ -55,7 +55,6 @@ input[type]{
 .card{
   min-width: 50%;
   padding: 0;
-  /* width: 25%; */
 }
 
 .card > .card-img-top{
@@ -171,10 +170,6 @@ input[type]{
   text-align: center;
 }
 
-/* .textoFeatures{
-  max-width: 120%;
-} */
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -282,10 +277,6 @@ button:focus-visible {
   }
 }
 
-.card {
-  /* width: 90%; */
-}
-
 #root {
   width: 100%;
   overflow-x: hidden;
@@ -302,24 +293,9 @@ button:focus-visible {
   width: 400px;
   text-align: center;
 }
-.short-card button {
-  border-radius: 15px;
-  text-decoration: none;
-  color: #dfe6e9;
-  background-color: #163172;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.short-card button:hover {
-  background-color: #1e56a0;
-}
 
 .short-card {
   border-radius: 25px;
-  /* background-color: #d6e4f0; */
   box-shadow: 0 2px 5px #ccc;
   text-align: left;
 }
@@ -352,7 +328,6 @@ button:focus-visible {
 }
 
 .short-card-bottom {
-  /* margin-top: 120px; */
   padding: 20px;
 }
 
