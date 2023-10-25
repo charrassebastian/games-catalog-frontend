@@ -10,10 +10,10 @@ export function Login({ handleClose, handleLogin }: { handleClose: () => void, h
   return (
     <div className='loginPopUp'>
       <div className="formLogin background-gradient">
-        <input type="text" placeholder="Username" onChange={handleUsernameChange} />
-        <input className='mb-3' type="password" placeholder="Password" onChange={handlePasswordChange} />
-        <button className='mb-3 closeLoginPopUp' onClick={() => handleLogin(username, password)}>Login</button>
-        <button className='mb-3 closeLoginPopUp' onClick={handleClose}>Close</button>
+        <input type="text" placeholder="Usuario" onChange={handleUsernameChange} />
+        <input className='mb-3' type="password" placeholder="Contraseña" onChange={handlePasswordChange} />
+        <button className='mb-3 closeLoginPopUp' onClick={() => handleLogin(username, password)}>Iniciar sesión</button>
+        <button className='mb-3 closeLoginPopUp' onClick={handleClose}>Cerrar</button>
       </div>
     </div>  
   );
