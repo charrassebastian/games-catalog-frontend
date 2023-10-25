@@ -6,16 +6,10 @@ export const ShortGameCard = ({ game, onShowMore }: { game: Game, onShowMore: ()
             <div className="short-card">
                 <div className="short-card-top">
                     <h2 className="short-card-name">{game.name}</h2>
-                    <img
-                        className="short-card-circle-img"
-                        src={game.imageLink}
-                        alt="avatar_img"
-                    />
+                    {game?.imageLink ? <img className="short-card-circle-img" src={game.imageLink} alt="avatar_img" /> : null}
                 </div>
                 <div className="short-card-bottom">
-                    <p className="short-card-info">
-                        {game.description}<br />
-                    </p>
+                    {game.description ? <p className="short-card-info">{game.description}</p> : null }
                     <button className="btn btn-primary" onClick={onShowMore}>Ver más</button>
                 </div>
             </div>
