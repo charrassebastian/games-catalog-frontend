@@ -1,0 +1,52 @@
+@emotion/react 11.11.1: MIT
+
+@emotion/styled 11.11.0: MIT
+
+@tanstack/react-query 4.35.3: MIT
+
+axios 1.5.0: MIT
+
+react 18.2.0: 
+	1 MIT License
+    2 
+    3 Copyright (c) Facebook, Inc. and its affiliates.
+    4 
+    5 Permission is hereby granted, free of charge, to any person obtaining a copy
+    6 of this software and associated documentation files (the "Software"), to deal
+    7 in the Software without restriction, including without limitation the rights
+    8 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+    9 copies of the Software, and to permit persons to whom the Software is
+   10 furnished to do so, subject to the following conditions:
+   11 
+   12 The above copyright notice and this permission notice shall be included in all
+   13 copies or substantial portions of the Software.
+   14 
+   15 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   16 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   17 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+   18 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   19 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+   20 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+   21 SOFTWARE.
+   
+react-dom 18.2.0: MIT
+
+@types/react 18.2.15: MIT
+
+@types/react-dom 18.2.7: MIT
+
+@typescript-eslint/eslint-plugin 6.0.0: MIT
+
+@typescript-eslint/parser 6.0.0: BSD-2-Clause
+
+@vitejs/plugin-react 4.0.3: MIT
+
+eslint 8.45.0: MIT
+
+eslint-plugin-react-hooks 4.6.0: MIT
+
+eslint-plugin-react-refresh 0.4.3: MIT
+
+typescript 5.0.2: Apache-2.0
+
+vite 4.4.5: MIT
