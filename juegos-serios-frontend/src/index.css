@@ -77,14 +77,14 @@ input[type]{
   padding: 2rem;
 }
 
-.formLogin > Input{
-  margin-top: 10%;
-  padding-top: 5%;
-  padding-bottom: 5%;
+.formLogin > p {
+  margin: 0;
+}
 
+.formLogin > Input{
+  padding: 1rem;
   background-color: rgb(255, 255, 255);
   color: black;
-
   border: 1px solid #b8b8b8;
   border-radius: 4px;
 }
