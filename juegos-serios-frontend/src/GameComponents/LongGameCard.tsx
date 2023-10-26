@@ -12,7 +12,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
             <div className="card-body">
                 <p className="card-text text-dark">{'Descripción: ' + game.description}</p>
                 <div>
-                    <h4>Areas</h4>
+                    <h4>Áreas</h4>
                     <ul>
                         {areas.map(area => {
                             const isChecked = game.area.includes(area)
@@ -29,7 +29,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                 </div>
                 <p className="card-text text-dark">{'Tiene un objetivo?: ' + (game.hasGoal ? 'Sí' : 'No')}</p>
                 <div>
-                    <h4>Propositos</h4>
+                    <h4>Propósitos</h4>
                     <ul>
                         {purposes.map(purpose => {
                             const isChecked = game.purpose.includes(purpose)
@@ -64,7 +64,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                     </ul>
                 </div>
                 <div>
-                    <h4>Publicos</h4>
+                    <h4>Públicos</h4>
                     <ul>
                         {publics.map(gamePublic => {
                             const isChecked = game.scope.public.includes(gamePublic)

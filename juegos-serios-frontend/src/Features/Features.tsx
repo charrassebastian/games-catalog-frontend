@@ -19,7 +19,7 @@ export function Features() {
                         </div>
                         <div className="d-flex justify-content-between">
                             <div className="textoFeatures">
-                                <h3 className="fs-2 features-h3">Busqueda avanzada</h3>
+                                <h3 className="fs-2 features-h3">Búsqueda avanzada</h3>
                                 <p className="features-p">Podés usar los filtros para encontrar lo que estás buscando</p>
                             </div>
                         </div>

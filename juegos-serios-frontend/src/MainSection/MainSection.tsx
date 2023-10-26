@@ -26,9 +26,9 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                     <div className="px-3 px-md5">
                         <h1 className="display-1 fw-bold text-body-emphasis bs-light lh-1 m-3">Juegos Serios</h1>
                         <br />
-                        <h2 className="introductory-text m-3">Encontra el juego que estas buscando.</h2>
+                        <h2 className="introductory-text m-3">Encontrá el juego que estás buscando.</h2>
                         <br />
-                        <p className="introductory-text m-3">Ingresa el nombre del juego que estes buscando (o dejá la casilla vacía para ver todos los juegos disponibles) y luego hace clic en el boton Buscar.</p>
+                        <p className="introductory-text m-3">Ingresa el nombre del juego que estés buscando (o dejá la casilla vacía para ver todos los juegos disponibles) y luego hacé clic en el botón Buscar.</p>
                     </div>
                     <form className="d-flex flex-column d-grid gap-3 d-md-flex justify-content-md-start" role="search" onSubmit={(e) => e.preventDefault()}>
                         <div className="d-flex flex-row flex-wrap">
@@ -40,8 +40,8 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                 value={searchValue}
                                 onChange={onSearchValueChange}
                             />
-                            <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}> Buscar </button>
-                            <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}> Limpiar</button>
+                            <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}>Buscar</button>
+                            <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}>Limpiar</button>
                         </div>
                         <div className="d-flex flex-row flex-wrap">
                             <div className="form-check m-3">

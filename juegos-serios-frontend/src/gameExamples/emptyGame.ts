@@ -1,4 +1,4 @@
-import Game from "../src/types/Game"
+import Game from "../types/Game"
 
 export const emptyGame: Game = {
   "name": "Nuevo juego",

@@ -3,7 +3,7 @@ export const Attributions = () => {
         <section id="features" className="my-5">
             <div className="container">
                 <div className="container px-4 pb-2" id="hanging-icons">
-                    <h2 id="Features-h1">Quienes participaron del proyecto:</h2>
+                    <h2 id="Features-h1">Quiénes participaron del proyecto:</h2>
                     <div className="contenedorFeatures d-flex justify-content-around">
                         <div className="d-flex justify-content-between">
                             <div className="textoFeatures">

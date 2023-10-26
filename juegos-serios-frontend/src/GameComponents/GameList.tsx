@@ -1,7 +1,7 @@
 // import GameCard from './GameCard'
 import Game from '../types/Game'
 import { EditableCard } from './EditableCard'
-import { emptyGame } from '../../examples/emptyGame'
+import { emptyGame } from '../gameExamples/emptyGame'
 import { useMutation } from '@tanstack/react-query'
 import { baseUrl } from '../constants/url'
 import axios from 'axios'

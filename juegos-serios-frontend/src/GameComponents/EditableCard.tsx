@@ -147,7 +147,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                 <input id={"has-goal-" + game.name} type="checkbox" className="form-check-input" checked={hasGoal} onChange={onHasGoalChange} />
                             </div>
                             <div>
-                                <h4>Propositos</h4>
+                                <h4>Propósitos</h4>
                                 <ul className="checkList">
                                     {purposes.map(purpose => {
                                         const isChecked = gamePurposes.includes(purpose)
