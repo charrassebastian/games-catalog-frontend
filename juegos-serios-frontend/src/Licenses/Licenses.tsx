@@ -11,7 +11,7 @@ export const Licenses = () => {
             {isExpanded
                 ?
                 <div className="licensesContent">
-                    <p className="licensesText"><pre>{licenses}</pre></p>
+                    <p><pre className="licensesText">{licenses}</pre></p>
                     <button className='mb-3 blueButton' onClick={handleToggle}>Cerrar</button>
                 </div>
                 : <li className="nav-item"><button className="nav-link text-light" onClick={handleToggle}>Licencias</button></li>

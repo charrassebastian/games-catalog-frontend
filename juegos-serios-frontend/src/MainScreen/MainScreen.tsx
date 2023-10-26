@@ -60,6 +60,13 @@ export const MainScreen = () => {
     const onSearch = async () => {
         const tempGames = await getGames()
         setGames(tempGames.games)
+        const searchResults = document.getElementById('search-results')
+        if (searchResults) {
+            window.scrollTo({
+                top: searchResults.offsetTop,
+                behavior: 'smooth'
+            })
+        }
     }
 
     const onClear = () => {

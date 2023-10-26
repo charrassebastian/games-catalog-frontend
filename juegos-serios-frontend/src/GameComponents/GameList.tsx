@@ -31,7 +31,7 @@ export function GameList({ games, isEditable }: { games: Game[], isEditable: boo
     ))
 
     return (
-        <section className='container my-2'>
+        <section className='container my-2' id='search-results'>
             <div className='row justify-content-center'>
                 {gameCards}
                 { isEditable ? <EditableCard game={newGame} isNewGame={true} onGameDelete={onGameDelete} /> : null }

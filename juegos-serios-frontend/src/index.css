@@ -75,6 +75,7 @@ input[type]{
   border-radius: 25px;
   box-shadow: 0 2px 5px #555;
   padding: 2rem;
+  max-width: 80vw;
 }
 
 .formLogin > p {
@@ -242,7 +243,9 @@ button:focus-visible {
 @media (max-width:1300px){
   .contenedorFeatures{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -312,7 +315,6 @@ button:focus-visible {
 .storageUseText {
   text-align: center;
   font-size: 12px;
-  max-width: 50vw;
 }
 
 .licensesContent {
@@ -320,6 +322,7 @@ button:focus-visible {
   border-radius: 25px;
   box-shadow: 0 2px 5px #555;
   padding: 2rem;
+  max-width: 90vw;
 }
 
 .blueButton {
@@ -329,5 +332,8 @@ button:focus-visible {
 .licensesText {
   text-align: justify;
   font-size: 12px;
-  max-width: 50vw; 
+}
+
+.textoFeatures {
+  text-align: center;
 }
