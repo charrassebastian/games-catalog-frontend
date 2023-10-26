@@ -3,14 +3,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* z-index: 1; */
 }
 
 /*******************************BACKGROUND GRADIENT ******************************/
 .gradient-background {
   background: linear-gradient(300deg, #163172, #1e56a0, #d6e4f0);
   background-size: 180% 180%;
-  /* animation: gradient-animation 18s ease infinite; */
 }
 
 @keyframes gradient-animation {
@@ -87,41 +85,17 @@ input[type]{
 
 .loginPopUp{
   background-color: rgb(243, 251, 253);
-
   display:grid;
-
   flex-wrap: center;
   position: fixed;
-  
   z-index: 500;
   border-radius: 25px;
-
   box-shadow: 5px 10px;
-
   padding: 2rem;
-}
 
-@media (max-height:400px){
-  .loginPopUp{
+  top: 15%;
     left: 50%;
     transform: translate(-50%);
-  }
-}
-
-@media (min-height:350px){
-  .loginPopUp{
-    top: 15%;
-    left: 50%;
-    transform: translate(-50%);
-  }
-}
-
-@media (min-height:700px){
-  .loginPopUp{
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-  }
 }
 
 .closeLoginPopUp {
@@ -129,9 +103,6 @@ input[type]{
 }
 
 /* ****************Features**************** */
-/* img {
-  padding-bottom: 2rem;
-} */
 
 .icon {
   background-color: white;
@@ -199,8 +170,6 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  /* min-width: 320px; */
-  /* min-height: 100vh; */
   overflow-x: hidden;
 }
 
@@ -273,7 +242,6 @@ button:focus-visible {
   .contenedorFeatures{
     display: flex;
     flex-wrap: wrap;
-    /* max-width: 50%; */
   }
 }
 
@@ -338,4 +306,8 @@ button:focus-visible {
 
 .short-card-bottom {
   padding: 20px;
+}
+
+.storageUseText {
+  text-align: center;
 }

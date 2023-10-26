@@ -14,6 +14,7 @@ export function Login({ handleClose, handleLogin }: { handleClose: () => void, h
         <input className='mb-3' type="password" placeholder="Contraseña" onChange={handlePasswordChange} />
         <button className='mb-3 closeLoginPopUp' onClick={() => handleLogin(username, password)}>Iniciar sesión</button>
         <button className='mb-3 closeLoginPopUp' onClick={handleClose}>Cerrar</button>
+        <p className="storageUseText">Usar una cuenta requiere usar la memoria del navegador</p>
       </div>
     </div>  
   );
