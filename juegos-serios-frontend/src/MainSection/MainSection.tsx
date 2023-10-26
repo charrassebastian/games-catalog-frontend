@@ -28,7 +28,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                         <br />
                         <h2 className="introductory-text m-3">Encontra el juego que estas buscando.</h2>
                         <br />
-                        <p className="introductory-text m-3">Ingresa el nombre del juego que estes buscando y luego hace click en el boton Buscar.</p>
+                        <p className="introductory-text m-3">Ingresa el nombre del juego que estes buscando (o dejá la casilla vacía para ver todos los juegos disponibles) y luego hace clic en el boton Buscar.</p>
                     </div>
                     <form className="d-flex flex-column d-grid gap-3 d-md-flex justify-content-md-start" role="search" onSubmit={(e) => e.preventDefault()}>
                         <div className="d-flex flex-row flex-wrap">
