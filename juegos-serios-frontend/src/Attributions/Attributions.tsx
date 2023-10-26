@@ -8,23 +8,23 @@ export const Attributions = () => {
                         <div className="d-flex justify-content-between">
                             <div className="textoFeatures">
                                 <h3 className="fs-2 features-h3">Frontend</h3>
-                                <p className="features-p-2">Sebastian Horacio Charras</p>
-                                <p className="features-p-2">Maria Ines Mayer</p>
+                                <p className="features-p-2">Sebastián Horacio Charrás</p>
+                                <p className="features-p-2">María Ines Mayer</p>
                                 <p className="features-p-2">Juan Ignacio Szapiro</p>
                             </div>
                         </div>
                         <div className="d-flex justify-content-between">
                             <div className="textoFeatures">
                                 <h3 className="fs-2 features-h3">Backend</h3>
-                                <p className="features-p-2">Sebastian Horacio Charras</p>
-                                <p className="features-p-2">Julian Celso Ginzburg</p>
-                                <p className="features-p-2">Manuel Mejia</p>
+                                <p className="features-p-2">Sebastián Horacio Charrás</p>
+                                <p className="features-p-2">Julián Celso Ginzburg</p>
+                                <p className="features-p-2">Manuel Mejía</p>
                             </div>
                         </div>
                         <div className="d-flex justify-content-between">
                             <div className="textoFeatures">
                                 <h3 className="fs-2 features-h3">Diseño</h3>
-                                <p className="features-p-2">Maria Ines Mayer</p>
+                                <p className="features-p-2">María Ines Mayer</p>
                             </div>
                         </div>
                         <div className="d-flex justify-content-between">
