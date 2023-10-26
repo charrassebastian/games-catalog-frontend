@@ -66,8 +66,15 @@ input[type]{
 }
 
 /*LOGIN*/
-.formLogin{
+.formLogin {
+  background-color: rgb(243, 251, 253);
   display:grid;
+  flex-wrap: center;
+  position: fixed;
+  z-index: 500;
+  border-radius: 25px;
+  box-shadow: 0 2px 5px #555;
+  padding: 2rem;
 }
 
 .formLogin > Input{
@@ -82,20 +89,14 @@ input[type]{
   border-radius: 4px;
 }
 
-
-.loginPopUp{
-  background-color: rgb(243, 251, 253);
-  display:grid;
-  flex-wrap: center;
+.loginPopUp {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  z-index: 500;
-  border-radius: 25px;
-  box-shadow: 5px 10px;
-  padding: 2rem;
-
-  top: 15%;
-    left: 50%;
-    transform: translate(-50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .closeLoginPopUp {
@@ -264,7 +265,7 @@ button:focus-visible {
 
 .short-card {
   border-radius: 25px;
-  box-shadow: 0 2px 5px #ccc;
+  box-shadow: 0 2px 5px #555;
   text-align: left;
 }
 

@@ -1,6 +1,6 @@
 export function Features() {
     return (
-        <section id="features">
+        <section id="features" className="my-5">
             <div className="container">
                 <div className="container px-4 pb-2" id="hanging-icons">
                     <h2 id="Features-h1">Qué ofrece:</h2>
@@ -27,6 +27,5 @@ export function Features() {
                 </div>
             </div>
         </section>
-
     )
 }

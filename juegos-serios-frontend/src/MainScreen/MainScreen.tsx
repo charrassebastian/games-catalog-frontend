@@ -4,11 +4,12 @@ import { Features } from '../Features/Features';
 import { Footer } from '../Footer/Footer';
 import { MainSection } from '../MainSection/MainSection';
 import { baseUrl } from '../constants/url';
+import { Attributions } from '../Attributions/Attributions';
 
 import axios from 'axios';
 import { GameList } from '../GameComponents/GameList';
 
-export const WelcomeScreen = () => {
+export const MainScreen = () => {
     const getGames = () => axios.get(baseUrl + 'games', { 
         params: { 
             value: searchValue, 
@@ -77,6 +78,7 @@ export const WelcomeScreen = () => {
             <MainSection onSearch={onSearch} onClear={onClear} searchValue={searchValue} onSearchValueChange={onSearchValueChange} onlyValidatedContent={onlyValidatedContent} onOnlyValidatedContentChange={onOnlyValidatedContentChange} area={area} onAreaChange={onAreaChange} purpose={purpose} onPurposeChange={onPurposeChange} market={market} onMarketChange={onMarketChange} gamePublic={gamePublic} onGamePublicChange={onGamePublicChange} />
             <GameList games={games} isEditable={!!localStorage.getItem("token")}/>
             <Features />
+            <Attributions />
             <Footer />
         </>
     );
