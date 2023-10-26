@@ -314,3 +314,20 @@ button:focus-visible {
   font-size: 12px;
   max-width: 50vw;
 }
+
+.licensesContent {
+  background-color: rgb(243, 251, 253);
+  border-radius: 25px;
+  box-shadow: 0 2px 5px #555;
+  padding: 2rem;
+}
+
+.blueButton {
+  background-color: #0b81e9;
+}
+
+.licensesText {
+  text-align: justify;
+  font-size: 12px;
+  max-width: 50vw; 
+}
