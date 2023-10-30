@@ -1,2 +1,2 @@
-const publics: string[] = ["General", "Profesionales", "Estudiantes"]
+const publics: string[] = ["Elegí una opción", "General", "Profesionales", "Estudiantes"]
 export default publics

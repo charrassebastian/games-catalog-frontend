@@ -27,7 +27,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                         }
                     </ul>
                 </div>
-                <p className="card-text text-dark">{'Tiene un objetivo?: ' + (game.hasGoal ? 'Sí' : 'No')}</p>
+                <p className="card-text text-dark">{'Tiene un objetivo: ' + (game.hasGoal ? 'Sí' : 'No')}</p>
                 <div>
                     <h4>Propósitos</h4>
                     <ul>

@@ -51,6 +51,12 @@ input[type]{
   }
 }
 
+@media (min-width:1000px){
+  .introductory-text {
+    font-size: 1.5vw;
+  }
+}
+
 .palabras-reservadas{
   margin-left: 2vw;
   margin-bottom: -1.5vw;

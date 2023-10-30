@@ -143,7 +143,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                 </ul>
                             </div>
                             <div className="form-check mb-3">
-                                <label htmlFor={"has-goal-" + game.name} className="form-check-label">Tiene un objetivo?</label>
+                                <label htmlFor={"has-goal-" + game.name} className="form-check-label">Tiene un objetivo</label>
                                 <input id={"has-goal-" + game.name} type="checkbox" className="form-check-input" checked={hasGoal} onChange={onHasGoalChange} />
                             </div>
                             <div>
