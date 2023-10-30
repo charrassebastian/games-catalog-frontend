@@ -7,7 +7,7 @@
 
 /*******************************BACKGROUND GRADIENT ******************************/
 .gradient-background {
-  background: linear-gradient(300deg, #163172, #1e56a0, #d6e4f0);
+  background: linear-gradient(300deg, #163172, #1e56a0);
   background-size: 180% 180%;
 }
 
@@ -41,8 +41,32 @@ input[type]{
   font-family: "Denk One", sans-serif;
   font-family: "Fredoka", sans-serif;
   font-family: "Instrument Sans", sans-serif;
-  font-size: 1.5rem;
+  font-size: 5vw;
   color: #f6f6f6;
+}
+
+@media (min-width:550px){
+  .introductory-text {
+    font-size: 3vw;
+  }
+}
+
+.palabras-reservadas{
+  margin-left: 2vw;
+  margin-bottom: -1.5vw;
+}
+
+@media (min-width:1000px){
+  .palabras-reservadas{
+    margin-left: 1.5vw;
+    margin-bottom: -1vw;
+  }
+}
+
+@media (min-width:1500px){
+  .palabras-reservadas{
+    margin-left: 1vw;
+  }
 }
 
 .cardContainer{
@@ -252,6 +276,15 @@ button:focus-visible {
 #root {
   width: 100%;
   overflow-x: hidden;
+}
+
+.dropdown{
+  display:flex;
+  flex-direction: column;
+}
+
+.label-dropdown-toggle{
+
 }
 
 .dropdown-menu {

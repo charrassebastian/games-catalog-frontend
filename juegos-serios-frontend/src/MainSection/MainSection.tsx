@@ -26,30 +26,16 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                     <div className="px-3 px-md5">
                         <h1 className="display-1 fw-bold text-body-emphasis bs-light lh-1 m-3">Juegos Serios</h1>
                         <br />
-                        <h2 className="introductory-text m-3">Encontrá el juego que estás buscando.</h2>
+                        <h2 className="introductory-text m-3">Un juego serio es un juego en el que la educación -en&nbsp;sus diversas formas- es el objetivo principal, más que el entretenimiento (Michael y Chen, 2006).</h2>
                         <br />
-                        <p className="introductory-text m-3">Ingresa el nombre del juego que estés buscando (o dejá la casilla vacía para ver todos los juegos disponibles) y luego hacé clic en el botón Buscar.</p>
+                        <p className="introductory-text m-3">Encontrá el juego que estás buscando en la lista que aparecerá al hacer clic en el botón 'Buscar'. Adicionalmente podrás seleccionar opciones en los filtros o ingresar palabras.</p>
                     </div>
                     <form className="d-flex flex-column d-grid gap-3 d-md-flex justify-content-md-start" role="search" onSubmit={(e) => e.preventDefault()}>
-                        <div className="d-flex flex-row flex-wrap">
-                            <input
-                                className="form-control m-3"
-                                type="search"
-                                placeholder="Search"    
-                                aria-label="Search"
-                                value={searchValue}
-                                onChange={onSearchValueChange}
-                            />
-                            <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}>Buscar</button>
-                            <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}>Limpiar</button>
-                        </div>
-                        <div className="d-flex flex-row flex-wrap">
-                            <div className="form-check m-3">
-                                <label htmlFor={"only-validated-content"} className="form-check-label text-white">Incluir solo contenido validado?</label>
-                                <input id={"only-validated-content"} type="checkbox" className="form-check-input" checked={onlyValidatedContent} onChange={onOnlyValidatedContentChange} />
-                            </div>
+                    <label className='introductory-text m-3'>Filtrar por:</label>
+                    <div className="d-flex flex-row flex-wrap">
                             <div className="btn-group m-3">
                                 <div className="dropdown">
+                                    <label className='introductory-text label-dropdown-toggle'>Área</label>
                                     <a
                                         className="btn btn-light dropdown-toggle"
                                         href="#"
@@ -58,7 +44,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {area?.length ? area : "Filtrar por area"}
+                                        {area?.length ? area : "Elegí una opción"}
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="area-dropdown-menu-link">
                                         {areas.map(area => (
@@ -73,6 +59,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             </div>
                             <div className="btn-group m-3">
                                 <div className="dropdown">
+                                    <label className='introductory-text label-dropdown-toggle'>Propósito</label>
                                     <a
                                         className="btn btn-light dropdown-toggle"
                                         href="#"
@@ -81,7 +68,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {purpose?.length ? purpose : "Filtrar por proposito"}
+                                        {purpose?.length ? purpose : "Elegí una opción"}
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="purpose-dropdown-menu-link">
                                         {purposes.map(purpose => (
@@ -96,6 +83,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             </div>
                             <div className="btn-group m-3">
                                 <div className="dropdown">
+                                    <label className='introductory-text label-dropdown-toggle'>Mercado</label>
                                     <a
                                         className="btn btn-light dropdown-toggle"
                                         href="#"
@@ -104,7 +92,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {market?.length ? market : "Filtrar por mercado"}
+                                        {market?.length ? market : "Elegí una opción"}
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="market-dropdown-menu-link">
                                         {markets.map(market => (
@@ -119,6 +107,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                             </div>
                             <div className="btn-group m-3">
                                 <div className="dropdown">
+                                    <label className='introductory-text label-dropdown-toggle'>Público</label>
                                     <a
                                         className="btn btn-light dropdown-toggle"
                                         href="#"
@@ -127,7 +116,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                         data-bs-toggle="dropdown"
                                         aria-expanded="false"
                                     >
-                                        {gamePublic?.length ? gamePublic : "Filtrar por publico"}
+                                        {gamePublic?.length ? gamePublic : "Elegí una opción"}
                                     </a>
                                     <ul className="dropdown-menu" aria-labelledby="game-public-dropdown-menu-link">
                                         {publics.map(gamePublic => (
@@ -141,6 +130,23 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                 </div>
                             </div>
                         </div>
+                        <div className="form-check m-3">
+                                <label htmlFor={"only-validated-content"} className="form-check-label text-white">Incluir solo contenido validado</label>
+                                <input id={"only-validated-content"} type="checkbox" className="form-check-input" checked={onlyValidatedContent} onChange={onOnlyValidatedContentChange} />
+                            </div>
+                        <div className="d-flex flex-row flex-wrap">
+                            <label className='introductory-text  palabras-reservadas'>Palabras relevantes</label>
+                            <input
+                                className="form-control m-3"
+                                type="search"
+                                placeholder='Ejemplo: Plague Inc. (para buscar Plague y/o Inc.) o "Plague Inc." (para buscar Plague Inc.)'    
+                                aria-label="Search"
+                                value={searchValue}
+                                onChange={onSearchValueChange}
+                            />
+                            <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}>Buscar</button>
+                            <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}>Limpiar</button>
+                        </div>                        
                     </form>
                 </div>
             </div>
