@@ -135,7 +135,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div>
                                 <h4>Áreas</h4>
                                 <ul className="checkList">
-                                    {areas.map(area => {
+                                    {areas.filter(area => area !== 'Elegí una opción').map(area => {
                                         const isChecked = gameAreas.includes(area)
                                         return (
                                             <li key={area}>
@@ -159,7 +159,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div>
                                 <h4>Propósitos</h4>
                                 <ul className="checkList">
-                                    {purposes.map(purpose => {
+                                    {purposes.filter(area => area !== 'Elegí una opción').map(purpose => {
                                         const isChecked = gamePurposes.includes(purpose)
                                         return (
                                             <li key={purpose}>
@@ -188,7 +188,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                     <ul className="dropdown-menu" aria-labelledby="market-dropdown-menu-link">
                                         {playabilityEvaluations.map(evaluation => (
                                             <li key={evaluation}>
-                                                <a className="dropdown-item" href="#" onClick={() => onPlayabilityEvaluationChange(evaluation)}>
+                                                <a className="dropdown-item" onClick={() => onPlayabilityEvaluationChange(evaluation)}>
                                                     {evaluation}
                                                 </a>
                                             </li>
@@ -211,7 +211,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div>
                                 <h4>Mercados</h4>
                                 <ul className="checkList">
-                                    {markets.map(market => {
+                                    {markets.filter(area => area !== 'Elegí una opción').map(market => {
                                         const isChecked = gameMarkets.includes(market)
                                         return (
                                             <li key={market}>
@@ -225,9 +225,9 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                 </ul>
                             </div>
                             <div>
-                                <h4>Publicos</h4>
+                                <h4>Públicos</h4>
                                 <ul className="checkList">
-                                    {publics.map(gamePublic => {
+                                    {publics.filter(area => area !== 'Elegí una opción').map(gamePublic => {
                                         const isChecked = gamePublics.includes(gamePublic)
                                         return (
                                             <li key={gamePublic}>

@@ -49,7 +49,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                     <ul className="dropdown-menu" aria-labelledby="area-dropdown-menu-link">
                                         {areas.map(area => (
                                             <li key={area}>
-                                                <a className="dropdown-item" href="#" onClick={() => onAreaChange(area)}>
+                                                <a className="dropdown-item" onClick={() => onAreaChange(area)}>
                                                     {area}
                                                 </a>
                                             </li>
@@ -73,7 +73,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                     <ul className="dropdown-menu" aria-labelledby="purpose-dropdown-menu-link">
                                         {purposes.map(purpose => (
                                             <li key={purpose}>
-                                                <a className="dropdown-item" href="#" onClick={() => onPurposeChange(purpose)}>
+                                                <a className="dropdown-item" onClick={() => onPurposeChange(purpose)}>
                                                     {purpose}
                                                 </a>
                                             </li>
@@ -97,7 +97,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                     <ul className="dropdown-menu" aria-labelledby="market-dropdown-menu-link">
                                         {markets.map(market => (
                                             <li key={market}>
-                                                <a className="dropdown-item" href="#" onClick={() => onMarketChange(market)}>
+                                                <a className="dropdown-item" onClick={() => onMarketChange(market)}>
                                                     {market}
                                                 </a>
                                             </li>
@@ -121,7 +121,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                     <ul className="dropdown-menu" aria-labelledby="game-public-dropdown-menu-link">
                                         {publics.map(gamePublic => (
                                             <li key={gamePublic}>
-                                                <a className="dropdown-item" href="#" onClick={() => onGamePublicChange(gamePublic)}>
+                                                <a className="dropdown-item" onClick={() => onGamePublicChange(gamePublic)}>
                                                     {gamePublic}
                                                 </a>
                                             </li>
