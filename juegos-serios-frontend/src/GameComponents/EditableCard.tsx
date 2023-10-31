@@ -2,12 +2,12 @@ import areas from '../constants/areas'
 import markets from '../constants/markets'
 import publics from '../constants/publics'
 import purposes from '../constants/purposes'
+import playabilityEvaluations from '../constants/playabilityEvaluations'
 import Game from '../types/Game'
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
 import { baseUrl } from '../constants/url'
-
 import Popup from '../Popup/popup'
 
 export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void, onToggleEdit?: () => void }) {
@@ -18,12 +18,14 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     const [hasGoal, setHasGoal] = useState(game.hasGoal)
     const [contentValidation, setContentValidation] = useState(game.contentValidation)
     const [observationsAndSuggestions, setObservationsAndSuggestions] = useState(game.observationsAndSuggestions)
-    const [score, setScore] = useState(game.score)
     const [others, setOthers] = useState(game.others)
     const [link, setLink] = useState(game.link)
     const [imageLink, setImageLink] = useState(game.imageLink)
     const [gameMarkets, setGameMarkets] = useState(game.scope.market)
     const [gamePublics, setGamePublics] = useState(game.scope.public)
+    const [goal, setGoal] = useState(game.goal)
+    const [playabilityEvaluation, setPlayabiltyEvaluation] = useState(game.playabilityEvaluation)
+    const [playabilityJustification, setPlayabilityJustification] = useState(game.playabilityJustification)
 
     const [isOpen, setIsOpen] = useState(!isNewGame);
 
@@ -32,10 +34,12 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     const onHasGoalChange = () => setHasGoal(!hasGoal)
     const onContentValidationChange = (e: React.ChangeEvent<HTMLInputElement>) => setContentValidation(e.target.value)
     const onObservationsAndSuggestionsChange = (e: React.ChangeEvent<HTMLInputElement>) => setObservationsAndSuggestions(e.target.value)
-    const onScoreChange = (e: React.ChangeEvent<HTMLInputElement>) => setScore(parseInt(e.target.value))
     const onOthersChange = (e: React.ChangeEvent<HTMLInputElement>) => setOthers(e.target.value)
     const onLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => setLink(e.target.value)
     const onImageLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => setImageLink(e.target.value)
+    const onGoalChange = (e: React.ChangeEvent<HTMLInputElement>) => setGoal(e.target.value)
+    const onPlayabilityEvaluationChange = (playabilityEvaluation: string) => setPlayabiltyEvaluation(playabilityEvaluation)
+    const onPlayabilityJustificationChange = (e: React.ChangeEvent<HTMLInputElement>) => setPlayabilityJustification(e.target.value)
 
     const onAreaToggle = (area: string) => {
         if (gameAreas.includes(area)) {
@@ -83,9 +87,11 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
         link,
         contentValidation,
         observationsAndSuggestions,
-        score,
         imageLink,
-        others
+        others,
+        goal,
+        playabilityEvaluation,
+        playabilityJustification
     }
 
     const updateGameMutation = useMutation({
@@ -146,6 +152,10 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                 <label htmlFor={"has-goal-" + game.name} className="form-check-label">Tiene un objetivo</label>
                                 <input id={"has-goal-" + game.name} type="checkbox" className="form-check-input" checked={hasGoal} onChange={onHasGoalChange} />
                             </div>
+                            <div className="mb-3">
+                                <label htmlFor={"goal-" + game.name} className="form-label">Objetivo:</label>
+                                <input id={"goal-" + game.name} type="text" className="form-control" value={goal} onChange={onGoalChange} />
+                            </div>
                             <div>
                                 <h4>Propósitos</h4>
                                 <ul className="checkList">
@@ -162,6 +172,34 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                     }
                                 </ul>
                             </div>
+                            <div className="btn-group m-3">
+                                <div className="dropdown">
+                                    <label className='form-label'>Evaluación de jugabilidad</label>
+                                    <a
+                                        className="btn btn-light dropdown-toggle"
+                                        href="#"
+                                        role="button"
+                                        id="market-dropdown-menu-link"
+                                        data-bs-toggle="dropdown"
+                                        aria-expanded="false"
+                                    >
+                                        {playabilityEvaluation}
+                                    </a>
+                                    <ul className="dropdown-menu" aria-labelledby="market-dropdown-menu-link">
+                                        {playabilityEvaluations.map(evaluation => (
+                                            <li key={evaluation}>
+                                                <a className="dropdown-item" href="#" onClick={() => onPlayabilityEvaluationChange(evaluation)}>
+                                                    {evaluation}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor={"playability-justification-" + game.name} className="form-label">Justificación de la evaluación de jugabilidad:</label>
+                                <input id={"playability-justification-" + game.name} type="text" className="form-control" value={playabilityJustification} onChange={onPlayabilityJustificationChange} />
+                            </div>
                             <div className="mb-3">
                                 <label htmlFor={"content-validation-" + game.name} className="form-label">Validación de contenido:</label>
                                 <input id={"content-validation-" + game.name} type="text" className="form-control" value={contentValidation} onChange={onContentValidationChange} />
@@ -169,10 +207,6 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div className="mb-3">
                                 <label htmlFor={"observations-and-suggestions-" + game.name} className="form-label">Observaciones y sugerencias:</label>
                                 <input id={"observations-and-suggestions-" + game.name} type="text" className="form-control" value={observationsAndSuggestions} onChange={onObservationsAndSuggestionsChange} />
-                            </div>
-                            <div className="mb-3">
-                                <label htmlFor={"score-" + game.name} className="form-label">Puntaje:</label>
-                                <input id={"score-" + game.name} type="number" className="form-control" value={score} onChange={onScoreChange} />
                             </div>
                             <div>
                                 <h4>Mercados</h4>

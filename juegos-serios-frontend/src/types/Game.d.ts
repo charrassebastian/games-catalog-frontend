@@ -14,9 +14,11 @@ interface Game {
     link: string,
     contentValidation: string,
     observationsAndSuggestions: string,
-    score: number,
     imageLink: string,
-    others: string
+    others: string,
+    goal: string,
+    playabilityEvaluation: string,
+    playabilityJustification: string
 }
 
 export default Game

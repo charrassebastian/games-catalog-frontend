@@ -28,6 +28,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                     </ul>
                 </div>
                 <p className="card-text text-dark">{'Tiene un objetivo: ' + (game.hasGoal ? 'Sí' : 'No')}</p>
+                {game.hasGoal ? <p className="card-text text-dark">{'Objetivo del juego: ' + game.goal}</p> : null}
                 <div>
                     <h4>Propósitos</h4>
                     <ul>
@@ -44,9 +45,10 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                         }
                     </ul>
                 </div>
+                <p className="card-text text-dark">{'Evaluación de jugabilidad: ' + game.playabilityEvaluation}</p>
+                <p className="card-text text-dark">{'Justificación de la evaluación de jugabilidad: ' + game.playabilityJustification}</p>
                 <p className="card-text text-dark">{'Validación de contenido: ' + game.contentValidation}</p>
                 <p className="card-text text-dark">{'Observaciones y sugerencias: ' + game.observationsAndSuggestions}</p>
-                <p className="card-text text-dark">{'Puntaje: ' + game.score}</p>
                 <div>
                     <h4>Mercados</h4>
                     <ul>

@@ -13,7 +13,9 @@ export const emptyGame: Game = {
   "link": "",
   "contentValidation": "",
   "observationsAndSuggestions": "",
-  "score": 0,
   "imageLink": "",
-  "others": ""
+  "others": "",
+  "goal": "",
+  "playabilityJustification": "",
+  "playabilityEvaluation": "REGULAR"
 }
