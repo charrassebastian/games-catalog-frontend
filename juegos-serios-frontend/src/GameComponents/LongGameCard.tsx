@@ -14,7 +14,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                 <div>
                     <h4>Áreas</h4>
                     <ul>
-                        {areas.map(area => {
+                        {areas.filter(e => e !== 'Elegí una opción').map(area => {
                             const isChecked = game.area.includes(area)
                             return (
                                 <li key={area}>
@@ -32,7 +32,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                 <div>
                     <h4>Propósitos</h4>
                     <ul>
-                        {purposes.map(purpose => {
+                        {purposes.filter(e => e !== 'Elegí una opción').map(purpose => {
                             const isChecked = game.purpose.includes(purpose)
                             return (
                                 <li key={purpose}>
@@ -52,7 +52,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                 <div>
                     <h4>Mercados</h4>
                     <ul>
-                        {markets.map(market => {
+                        {markets.filter(e => e !== 'Elegí una opción').map(market => {
                             const isChecked = game.scope.market.includes(market)
                             return (
                                 <li key={market}>
@@ -68,7 +68,7 @@ export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game
                 <div>
                     <h4>Públicos</h4>
                     <ul>
-                        {publics.map(gamePublic => {
+                        {publics.filter(e => e !== 'Elegí una opción').map(gamePublic => {
                             const isChecked = game.scope.public.includes(gamePublic)
                             return (
                                 <li key={gamePublic}>

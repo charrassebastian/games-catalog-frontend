@@ -135,7 +135,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div>
                                 <h4>Áreas</h4>
                                 <ul className="checkList">
-                                    {areas.filter(area => area !== 'Elegí una opción').map(area => {
+                                    {areas.filter(e => e !== 'Elegí una opción').map(area => {
                                         const isChecked = gameAreas.includes(area)
                                         return (
                                             <li key={area}>
@@ -159,7 +159,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div>
                                 <h4>Propósitos</h4>
                                 <ul className="checkList">
-                                    {purposes.filter(area => area !== 'Elegí una opción').map(purpose => {
+                                    {purposes.filter(e => e !== 'Elegí una opción').map(purpose => {
                                         const isChecked = gamePurposes.includes(purpose)
                                         return (
                                             <li key={purpose}>
@@ -211,7 +211,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div>
                                 <h4>Mercados</h4>
                                 <ul className="checkList">
-                                    {markets.filter(area => area !== 'Elegí una opción').map(market => {
+                                    {markets.filter(e => e !== 'Elegí una opción').map(market => {
                                         const isChecked = gameMarkets.includes(market)
                                         return (
                                             <li key={market}>
@@ -227,7 +227,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div>
                                 <h4>Públicos</h4>
                                 <ul className="checkList">
-                                    {publics.filter(area => area !== 'Elegí una opción').map(gamePublic => {
+                                    {publics.filter(e => e !== 'Elegí una opción').map(gamePublic => {
                                         const isChecked = gamePublics.includes(gamePublic)
                                         return (
                                             <li key={gamePublic}>
