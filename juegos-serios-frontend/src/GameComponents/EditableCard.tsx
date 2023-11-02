@@ -270,8 +270,8 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                             <div>
                                 {!isNewGame ?
                                     <>
-                                        <div className="mb-3"><button type="button" className="btn btn-primary" onClick={() => onGameUpdate()}>Actualizar juego</button></div>
-                                        <div><button type="button" className="btn btn-secondary" onClick={onToggleEdit}>Dejar de editar</button></div>
+                                        <div className="mb-3"><button type="button" className="btn btn-primary" onClick={() => onGameUpdate()}>Guardar juego</button></div>
+                                        <div><button type="button" className="btn btn-secondary" onClick={onToggleEdit}>Cerrar</button></div>
                                     </>
                                     :
                                     <>
