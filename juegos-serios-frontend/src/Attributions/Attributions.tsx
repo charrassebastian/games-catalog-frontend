@@ -1,6 +1,6 @@
 export const Attributions = () => {
     return (
-        <section id="features" className="my-5">
+        <section id="attributions" className="my-5">
             <div className="container">
                 <div className="container px-4 pb-2" id="hanging-icons">
                     <h2 id="Features-h1">Quiénes participaron del proyecto:</h2>

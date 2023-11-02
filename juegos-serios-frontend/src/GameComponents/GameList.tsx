@@ -1,4 +1,3 @@
-// import GameCard from './GameCard'
 import Game from '../types/Game'
 import { EditableCard } from './EditableCard'
 import { emptyGame } from '../gameExamples/emptyGame'

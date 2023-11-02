@@ -8,6 +8,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
 import { baseUrl } from '../constants/url'
+import { DeletionConfirmation } from '../DeletionConfirmation/DeletionConfirmation'
 
 export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void, onToggleEdit?: () => void }) {
     const [gameName, setGameName] = useState(game.name)
@@ -25,6 +26,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     const [goal, setGoal] = useState(game.goal)
     const [playabilityEvaluation, setPlayabiltyEvaluation] = useState(game.playabilityEvaluation)
     const [playabilityJustification, setPlayabilityJustification] = useState(game.playabilityJustification)
+    const [showDeletionConfirmation, setShowDeletionConfirmation] = useState(false)
 
     const [isOpen, setIsOpen] = useState(!isNewGame);
 
@@ -113,6 +115,19 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     const closePopup = () => {
         setIsOpen(!isOpen);
     };
+
+    const onCancelDelete = () => {
+        setShowDeletionConfirmation(false)
+    }
+
+    const onConfirmDelete = () => {
+        onGameDelete(String(game._id))
+        setShowDeletionConfirmation(false)
+    }
+
+    const handleDeleteClick = () => {
+        setShowDeletionConfirmation(true)
+    }
 
     return (
         <>
@@ -251,7 +266,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                 <label htmlFor={"image-url-" + game.name} className="form-label">URL de la imagen:</label>
                                 <input id={"image-url-" + game.name} type="text" className="form-control" value={imageLink} onChange={onImageLinkChange} />
                             </div>
-                            {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={() => onGameDelete(String(game._id))}>Borrar juego</button></div> : null}
+                            {!isNewGame ? <div><button type="button" className="btn btn-danger mb-3" onClick={handleDeleteClick}>Borrar juego</button></div> : null}
                             <div>
                                 {!isNewGame ?
                                     <>
@@ -265,6 +280,9 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
                                     </>
                                 }
                             </div>
+                            {showDeletionConfirmation
+                            ? <DeletionConfirmation onCancel={onCancelDelete} onConfirm={onConfirmDelete} />
+                            : null}
                         </form>
                     </div>
                 </div>
