@@ -135,16 +135,16 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                                 <input id={"only-validated-content"} type="checkbox" className="form-check-input" checked={onlyValidatedContent} onChange={onOnlyValidatedContentChange} />
                             </div>
                         <div className="d-flex flex-row flex-wrap">
-                            <label className='introductory-text  palabras-reservadas'>Palabras relevantes</label>
+                            <label className='introductory-text m-3 mb-0 palabras-reservadas'>Palabras relevantes</label>
                             <input
-                                className="form-control m-3 mb-1"
+                                className="form-control m-3 mt-0 mb-1"
                                 type="search"
                                 aria-label="search"
                                 value={searchValue}
                                 onChange={onSearchValueChange}
                             />
                             <div className="d-flex flex-column">
-                                <p className="mx-3 text-white">Ejemplo: <i>Plague Inc.</i> (para buscar <i>Plague y/o Inc.</i>) o <i>"Plague Inc."</i> (para buscar <i>Plague Inc.</i>)</p>
+                                <p className="mx-3 text-white">Ejemplo: <i><b>Plague Inc.</b></i> (para buscar <i><b>Plague</b></i> y/o <i><b>Inc.</b></i>) o <i><b>"Plague Inc."</b></i> (para buscar <i><b>Plague Inc.</b></i>)</p>
                                 <div>
                                     <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}>Buscar</button>
                                     <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}>Limpiar</button>

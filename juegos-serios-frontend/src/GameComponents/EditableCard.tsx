@@ -8,7 +8,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useMutation } from '@tanstack/react-query'
 import { baseUrl } from '../constants/url'
-import Popup from '../Popup/popup'
 
 export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void, onToggleEdit?: () => void }) {
     const [gameName, setGameName] = useState(game.name)
