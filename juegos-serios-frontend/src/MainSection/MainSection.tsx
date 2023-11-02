@@ -28,10 +28,10 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                         <br />
                         <h2 className="introductory-text m-3">Un juego serio es un juego en el que la educación -en&nbsp;sus diversas formas- es el objetivo principal, más que el entretenimiento (Michael y Chen, 2006).</h2>
                         <br />
-                        <p className="introductory-text m-3">Encontrá el juego que estás buscando en la lista que aparecerá al hacer clic en el botón 'Buscar'. Adicionalmente podrás seleccionar opciones en los filtros o ingresar palabras.</p>
+                        <p className="introductory-text m-3">Encontrá el juego que estás buscando. Primeramente, si lo deseas, podrás seleccionar opciones en los filtros o ingresar palabras relevantes. Al hacer clic en el botón "Buscar" aparecerá la lista de resultados. Si no se elige ninguna opción en los filtros ni se escriben palabras relevantes, aparecerá la lista completa.</p>
                     </div>
-                    <form className="d-flex flex-column d-grid gap-3 d-md-flex justify-content-md-start" role="search" onSubmit={(e) => e.preventDefault()}>
-                    <label className='introductory-text m-3'>Filtrar por:</label>
+                    <form className="d-flex flex-column d-grid d-md-flex justify-content-md-start" role="search" onSubmit={(e) => e.preventDefault()}>
+                    <label className='introductory-text mx-3'>Filtrar por:</label>
                     <div className="d-flex flex-row flex-wrap">
                             <div className="btn-group m-3">
                                 <div className="dropdown">
