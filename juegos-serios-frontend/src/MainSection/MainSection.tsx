@@ -137,15 +137,20 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                         <div className="d-flex flex-row flex-wrap">
                             <label className='introductory-text  palabras-reservadas'>Palabras relevantes</label>
                             <input
-                                className="form-control m-3"
+                                className="form-control m-3 mb-1"
                                 type="search"
-                                placeholder='Ejemplo: Plague Inc. (para buscar Plague y/o Inc.) o "Plague Inc." (para buscar Plague Inc.)'    
-                                aria-label="Search"
+                                aria-label="search"
                                 value={searchValue}
                                 onChange={onSearchValueChange}
                             />
-                            <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}>Buscar</button>
-                            <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}>Limpiar</button>
+                            <div className="d-flex flex-column">
+                                <p className="mx-3 text-white">Ejemplo: <i>Plague Inc.</i> (para buscar <i>Plague y/o Inc.</i>) o <i>"Plague Inc."</i> (para buscar <i>Plague Inc.</i>)</p>
+                                <div>
+                                    <button type="button" className="btn btn-light btn-lg px-4 m-3" onClick={onSearch}>Buscar</button>
+                                    <button type="button" className="btn btn-outline-light btn-lg px-4 m-3" onClick={onClear}>Limpiar</button>
+                                </div>
+                            </div>
+                            
                         </div>                        
                     </form>
                 </div>
