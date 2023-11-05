@@ -10,7 +10,7 @@ import { useMutation } from '@tanstack/react-query'
 import { baseUrl } from '../constants/url'
 import { DeletionConfirmation } from '../DeletionConfirmation/DeletionConfirmation'
 
-export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void, onToggleEdit?: () => void }) {
+export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit, onUpdateGameList }: { game: Game, isNewGame?: boolean, onGameDelete: (id: string) => void, onToggleEdit?: () => void, onUpdateGameList: (game: Game) => void }) {
     const [gameName, setGameName] = useState(game.name)
     const [description, setDescription] = useState(game.description)
     const [gameAreas, setGameAreas] = useState(game.area)
@@ -103,6 +103,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit }: { 
     })
 
     const onGameUpdate = () => {
+        onUpdateGameList(editedGame)
         updateGameMutation.mutate()
         closePopup()
     }

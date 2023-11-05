@@ -23,17 +23,21 @@ export function GameList({ games, isEditable }: { games: Game[], isEditable: boo
         setCurrentGames(currentGames.filter(game => game._id !== id))
     }
 
+    const handleUpdateGameList = (game: Game) => {
+        setCurrentGames(currentGames.map(e => e!._id === game!._id ? game : e))
+    }
+
     const newGame = emptyGame
 
     const gameCards = currentGames.map((game: Game) => (
-        <GameCard game={game} isEditable={isEditable} onGameDelete={onGameDelete} key={JSON.stringify(game)} />
+        <GameCard game={game} isEditable={isEditable} onGameDelete={onGameDelete} onUpdateGameList={handleUpdateGameList} key={JSON.stringify(game)} />
     ))
 
     return (
         <section className='container my-2' id='search-results'>
             <div className='row justify-content-center'>
                 {gameCards}
-                { isEditable ? <EditableCard game={newGame} isNewGame={true} onGameDelete={onGameDelete} /> : null }
+                { isEditable ? <EditableCard game={newGame} isNewGame={true} onGameDelete={onGameDelete} onUpdateGameList={handleUpdateGameList} /> : null }
             </div>
         </section>
     )
