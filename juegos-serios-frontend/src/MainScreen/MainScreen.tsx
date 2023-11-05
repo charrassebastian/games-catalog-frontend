@@ -59,8 +59,6 @@ export const MainScreen = () => {
 
     const onSearch = async () => {
         const tempGames = await getGames()
-        console.log("retrieved games")
-        console.log(tempGames.games)
         setGames(tempGames.games)
         const searchResults = document.getElementById('search-results')
         if (searchResults) {

@@ -11,7 +11,6 @@ export function GameList({ games, isEditable }: { games: Game[], isEditable: boo
     const [currentGames, setCurrentGames] = useState([...games])
 
     useEffect(() => {
-        console.log('effect updating the games')
         setCurrentGames([...games])
     }, [games])
 
