@@ -11,7 +11,8 @@ export function GameList({ games, isEditable }: { games: Game[], isEditable: boo
     const [currentGames, setCurrentGames] = useState([...games])
 
     useEffect(() => {
-        setCurrentGames(games)
+        console.log('effect updating the games')
+        setCurrentGames([...games])
     }, [games])
 
     const deleteGameMutation = useMutation({
@@ -26,7 +27,7 @@ export function GameList({ games, isEditable }: { games: Game[], isEditable: boo
     const newGame = emptyGame
 
     const gameCards = currentGames.map((game: Game) => (
-        <GameCard game={game} isEditable={isEditable} onGameDelete={onGameDelete} key={game.name} />
+        <GameCard game={game} isEditable={isEditable} onGameDelete={onGameDelete} key={JSON.stringify(game)} />
     ))
 
     return (
