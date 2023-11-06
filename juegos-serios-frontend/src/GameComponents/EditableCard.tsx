@@ -95,6 +95,25 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit, onUp
         playabilityJustification
     }
 
+    const resetFields = () => {
+        setGameName(game.name)
+        setGameAreas(game.area)
+        setGamePurposes(game.purpose)
+        setHasGoal(game.hasGoal)
+        setContentValidation(game.contentValidation)
+        setObservationsAndSuggestions(game.observationsAndSuggestions)
+        setOthers(game.others)
+        setLink(game.link)
+        setImageLink(game.imageLink)
+        setGameMarkets(game.scope.market)
+        setGamePublics(game.scope.public)
+        setGoal(game.goal)
+        setPlayabiltyEvaluation(game.playabilityEvaluation)
+        setPlayabilityJustification(game.playabilityJustification)
+        setShowDeletionConfirmation(false)
+        setDescription(game.description)
+    }
+
     const updateGameMutation = useMutation({
         mutationFn: () => axios.put(baseUrl + 'game', { game: editedGame }, { params: { id: game._id }, headers: { authentication: localStorage.getItem('token') } })
     })
@@ -111,6 +130,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit, onUp
     const onGameCreate = (game: Game) => {
         createGameMutation.mutate(game)
         closePopup()
+        resetFields()
     }
 
     const closePopup = () => {
