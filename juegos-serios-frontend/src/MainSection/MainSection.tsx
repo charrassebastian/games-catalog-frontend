@@ -26,7 +26,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                     <div className="px-3 px-md5">
                         <h1 className="dorado display-1 fw-bold bs-light lh-1 m-3">Juegos Serios</h1>
                         <br />
-                        <h2 className="introductory-text m-3">Un juego serio es un juego en el que la educación -en&nbsp;sus diversas formas- es el objetivo principal, más que el entretenimiento (Michael y Chen, 2006).</h2>
+                        <p className="introductory-text m-3">Un juego serio es un juego en el que la educación -en&nbsp;sus diversas formas- es el objetivo principal, más que el entretenimiento (Michael y Chen, 2006).</p>
                         <br />
                         <p className="introductory-text m-3">Encontrá el juego que estás buscando. Primeramente, si lo deseás, podrás seleccionar opciones en los filtros o ingresar palabras relevantes. Al hacer clic en el botón "Buscar" aparecerá la lista de resultados. Si no se elige ninguna opción en los filtros ni se escriben palabras relevantes, aparecerá la lista completa.</p>
                     </div>
