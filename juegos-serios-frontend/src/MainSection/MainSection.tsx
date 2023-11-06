@@ -22,7 +22,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
     return (
         <section className="gradient-background home">
             <div className="container col-xxl-8 px-3 px-md5 " >
-                <div className="row flex-lg-row-reverse align-items-center g-5 pt-5">
+                <div className="row flex-lg-row-reverse align-items-center pt-5">
                     <div className="px-3 px-md5">
                         <h1 className="display-1 fw-bold text-body-emphasis bs-light lh-1 m-3">Juegos Serios</h1>
                         <br />
