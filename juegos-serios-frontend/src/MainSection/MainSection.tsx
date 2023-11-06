@@ -24,7 +24,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
             <div className="container col-xxl-8 px-3 px-md5 " >
                 <div className="row flex-lg-row-reverse align-items-center pt-5">
                     <div className="px-3 px-md5">
-                        <h1 className="dorado display-1 fw-bold text-body-emphasis bs-light lh-1 m-3">Juegos Serios</h1>
+                        <h1 className="dorado display-1 fw-bold bs-light lh-1 m-3">Juegos Serios</h1>
                         <br />
                         <h2 className="introductory-text m-3">Un juego serio es un juego en el que la educación -en&nbsp;sus diversas formas- es el objetivo principal, más que el entretenimiento (Michael y Chen, 2006).</h2>
                         <br />
