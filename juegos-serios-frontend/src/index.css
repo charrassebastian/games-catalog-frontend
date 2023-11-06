@@ -340,3 +340,27 @@ button:focus-visible {
 .textoFeatures {
   text-align: center;
 }
+
+.gif{
+  max-width: 50%;
+  margin-left: 20%;
+}
+
+@media (min-width: 1000px) {
+  .tituloYgif{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+  .tituloYgif > h1 {
+    white-space: nowrap;
+    display: block;
+  }
+  .m-3{
+    margin-top: 0;
+  }
+  .gif{
+    margin-left: -10%;
+  }
+}

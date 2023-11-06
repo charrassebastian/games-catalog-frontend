@@ -518,5 +518,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+Licencia de la imagen de la página de inicio: Revista Superinteressante - Editora Abril https://super.abril.com.br/
 `
 export default licenses
