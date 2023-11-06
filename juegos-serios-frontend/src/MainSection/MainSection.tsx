@@ -26,7 +26,7 @@ export function MainSection({ onSearch, onClear, searchValue, onSearchValueChang
                     <div className="px-3 px-md5">
                         <div className='tituloYgif'>
                             <h1 className="dorado display-1 fw-bold bs-light m-3">Juegos Serios</h1>
-                            <img className='gif' src="/src/assets/evolution.gif" alt="Evolution" />
+                            <img className='gif' src="/evolution.gif" alt="Evolution" />
                         </div>                        
                         <p className="introductory-text m-3">Un juego serio es un juego en el que la educación -en&nbsp;sus diversas formas- es el objetivo principal, más que el entretenimiento (Michael y Chen, 2006).</p>
                         <br />
