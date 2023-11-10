@@ -58,7 +58,7 @@ input[type]{
   padding: 0;
 }
 
-.card > .card-img-top{
+.card .card-img-top{
   align-self: center;
   max-width: 100%;
   height: 40vh;
@@ -301,7 +301,7 @@ button:focus-visible {
   margin: 20px;
 }
 
-.short-card img {
+.short-card-top img {
   margin: 20px;
 }
 
@@ -364,4 +364,8 @@ button:focus-visible {
   .gif{
     margin-left: -10%;
   }
+}
+
+.border-rounded {
+  border-radius: 25px;
 }

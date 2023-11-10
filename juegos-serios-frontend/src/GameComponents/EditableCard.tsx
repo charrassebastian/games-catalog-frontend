@@ -154,9 +154,11 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit, onUp
         <>
             {isNewGame ? <button className='btn btn-primary w-75 m-3' onClick={() => setIsOpen(true)}>Agregar juego</button> : null}
             {isOpen ?
-                <div className="card m-3">
-                    {game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null}
-                    <h3 className="card-title text-dark m-3">{game.name}</h3>
+                <div className="card m-3 border-rounded">
+                    <div className="short-card-top">
+                        <h2 className="short-card-name">{game.name}</h2>
+                        {game?.imageLink ? <img className="short-card-circle-img" src={game.imageLink} alt="avatar_img" /> : null}
+                    </div>
                     <div className="card-body">
                         <form>
                             <div className="mb-3">

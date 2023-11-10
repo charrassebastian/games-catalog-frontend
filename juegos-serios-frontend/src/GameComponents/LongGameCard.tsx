@@ -6,9 +6,11 @@ import Game from '../types/Game'
 
 export function LongGameCard({ game, isEditable, onClose, onToggleEdit }: { game: Game, isEditable: boolean, onClose: () => void, onToggleEdit: () => void }) {
     return (
-        <div className="card m-3">
-            {game.imageLink?.length ? <img src={game.imageLink} className="card-img-top text-dark" alt={game.name} /> : null}
-            <h3 className="card-title text-dark m-3">{game.name}</h3>
+        <div className="card m-3 border-rounded">
+            <div className="short-card-top">
+                <h2 className="short-card-name">{game.name}</h2>
+                {game?.imageLink ? <img className="short-card-circle-img" src={game.imageLink} alt="avatar_img" /> : null}
+            </div>
             <div className="card-body">
                 <p className="card-text text-dark">{'Descripción: ' + game.description}</p>
                 <div>
