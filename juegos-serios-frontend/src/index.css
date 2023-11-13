@@ -294,8 +294,7 @@ button:focus-visible {
 }
 
 .short-card-name {
-  /* overflow-x: hiden; */
-  overflow-x: scroll;
+  overflow-x: auto;
   font-size: 2em;
   color: white;
   display: flex;
@@ -303,9 +302,6 @@ button:focus-visible {
   margin: 20px;
 }
 
-.short-card-top img {
-  margin: 20px;
-}
 
 .short-card-circle-img {
   overflow: hidden;
@@ -316,10 +312,11 @@ button:focus-visible {
   border: 7px solid #fff;
   width: 120px;
   height: 120px;
+  margin: 20px;
 }
 
 .short-card-circle-img > img{
-  width: fit-content;
+  width:100%;
 }
 
 .short-card-bottom {
