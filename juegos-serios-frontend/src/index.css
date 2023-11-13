@@ -295,7 +295,7 @@ button:focus-visible {
 
 .short-card-name {
   overflow-x: auto;
-  font-size: 2em;
+  font-size: 1.5em;
   color: white;
   display: flex;
   flex: 1;
@@ -312,7 +312,7 @@ button:focus-visible {
   border: 7px solid #fff;
   width: 120px;
   height: 120px;
-  margin: 20px;
+  margin: 20px 20px 20px 0;
 }
 
 .short-card-circle-img > img{
