@@ -157,7 +157,7 @@ export function EditableCard({ game, isNewGame, onGameDelete, onToggleEdit, onUp
                 <div className="card m-3 border-rounded">
                     <div className="short-card-top">
                         <h2 className="short-card-name">{game.name}</h2>
-                        {game?.imageLink ? <img className="short-card-circle-img" src={game.imageLink} alt="avatar_img" /> : null}
+                        {game?.imageLink ? <div className="short-card-circle-img"><img src={game.imageLink} alt="avatar_img" /></div> : null}
                     </div>
                     <div className="card-body">
                         <form>

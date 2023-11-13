@@ -294,6 +294,7 @@ button:focus-visible {
 }
 
 .short-card-name {
+  overflow-y: hidden;
   overflow-x: auto;
   font-size: 1.5em;
   color: white;
