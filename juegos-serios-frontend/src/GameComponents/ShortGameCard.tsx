@@ -6,7 +6,7 @@ export const ShortGameCard = ({ game, onShowMore }: { game: Game, onShowMore: ()
             <div className="short-card">
                 <div className="short-card-top">
                     <h2 className="short-card-name">{game.name}</h2>
-                    {game?.imageLink ? <img className="short-card-circle-img" src={game.imageLink} alt="avatar_img" /> : null}
+                    <div className="short-card-circle-img">{game?.imageLink ? <img  src={game.imageLink} alt="avatar_img" /> : null}</div>                    
                 </div>
                 <div className="short-card-bottom">
                     {game.description ? <p className="short-card-info">{game.description}</p> : null }
