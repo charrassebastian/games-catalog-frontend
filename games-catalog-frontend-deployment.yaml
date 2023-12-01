@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: react
+  name: games-catalog-frontend
 spec:
   selector:
     matchLabels:
-      app: react
+      app: games-catalog-frontend
   template:
     metadata:
       labels:
-        app: react
+        app: games-catalog-frontend
     spec:
       containers:
-      - name: react
+      - name: games-catalog-frontend
         image: sebastiancharras/games-catalog-frontend
         ports:
         - containerPort: 8080
