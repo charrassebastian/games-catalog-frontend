@@ -1,2 +1,0 @@
-const areas: string[] = ["Elegí una opción", "Ciencias Naturales", "Matemática, Física y Química", "Robótica y Programación", "Literatura", "Idiomas", "Historia y Sociales", "Geografía", "Otro"]
-export default areas

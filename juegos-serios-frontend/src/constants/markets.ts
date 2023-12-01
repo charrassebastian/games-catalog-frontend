@@ -1,2 +1,0 @@
-const markets: string[] = ["Elegí una opción", "Estado y Gobierno", "Militar", "Salud", "Educación", "Corporativo", "Religión", "Cultura y Artes", "Ecología", "Política", "Humanitario", "Publicidad", "Investigación científica", "Entretenimiento"]
-export default markets
