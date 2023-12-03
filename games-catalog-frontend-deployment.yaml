@@ -15,4 +15,4 @@ spec:
       - name: games-catalog-frontend
         image: sebastiancharras/games-catalog-frontend
         ports:
-        - containerPort: 8080
+        - containerPort: 80

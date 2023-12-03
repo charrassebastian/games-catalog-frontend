@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:8082/api/'
+export const baseUrl = 'https://games-api.sebastiancharras.tech/api/'
